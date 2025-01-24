@@ -131,7 +131,7 @@
             },
             scroll: {
               '0%': { transform: 'translateX(0)' },
-              '100%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(-85%)' },
             },
           },
           aspectRatio: {
@@ -349,52 +349,63 @@
 </head>
 
 <body class="antialiased text-gray-800 min-h-screen flex flex-col">
-  <!-- Skip to main content link for accessibility -->
-  <a href="#main-content"
-    class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
-    Skip to main content
-  </a>
-
-  <!-- Header -->
-  <header class="relative z-50 bg-white dark:bg-gray-900">
-    <!-- Header content goes here -->
-  </header>
-
-  <!-- Main content area -->
-  <main id="main-content" class="flex-1 relative ">
-    <!-- Content will be injected here -->
-  </main>
-
-  <!-- {bodyScripts} -->
-
-</body>
-
-</html>
 <element id="2d19b37d-0431-4f0b-b4a4-41db8e5098e2" data-section-id="2d19b37d-0431-4f0b-b4a4-41db8e5098e2">
 
+
   <div id="root">
-    <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm border-b border-gray-100 z-50">
+  </div>
+</element>
+<element id="67e4294c-f65c-4c44-9865-07d19e6cc2b9" data-section-id="67e4294c-f65c-4c44-9865-07d19e6cc2b9">
+</style>
+
+  <section id="hero"
+    class="relative pt-20 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 min-h-[90vh] overflow-hidden flex justify-center items-center">
+    <!-- Navbar -->
+    <!-- <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex-shrink-0">
+            <span
+              class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">KraftX</span>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-center space-x-8">
+              <a href="#problem" class="text-slate-200 hover:text-blue-400 transition-colors duration-200">Problem</a>
+              <a href="#solution" class="text-slate-200 hover:text-blue-400 transition-colors duration-200">Solution</a>
+              <a href="#benefits" class="text-slate-200 hover:text-blue-400 transition-colors duration-200">Benefits</a>
+              <a href="#expertise" class="text-slate-200 hover:text-blue-400 transition-colors duration-200">Expertise</a>
+              <button
+                class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-2.5 rounded-lg hover:from-blue-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-blue-500/20">
+                Get Started
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav> -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
           <div class="flex-shrink-0">
             <a href="#"
-              class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">KraftX</a>
+              class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">KraftX</a>
           </div>
+          
 
           <!-- Desktop Navigation -->
           <div class="hidden md:block">
             <div class="ml-10 flex items-center space-x-8">
               <a href="#problem"
-                class="text-gray-600 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Problem</a>
+                class="text-slate-200 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Problem</a>
               <a href="#solution"
-                class="text-gray-600 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Solution</a>
+                class="text-slate-200 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Solution</a>
               <a href="#benefits"
-                class="text-gray-600 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Benefits</a>
+                class="text-slate-200 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Benefits</a>
               <a href="#expertise"
-                class="text-gray-600 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Expertise</a>
+                class="text-slate-200 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Expertise</a>
               <button
-                class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-2.5 rounded-full hover:scale-105 transition-all duration-300 font-medium shadow-lg hover:shadow-blue-200">
+                class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-2.5 rounded-lg hover:from-blue-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-blue-500/20">
                 Get Started
               </button>
             </div>
@@ -403,7 +414,7 @@
           <!-- Mobile Navigation Button -->
           <div class="md:hidden">
             <button id="mobile-menu-button"
-              class="text-gray-600 hover:text-blue-600 focus:outline-none transition-all duration-300">
+              class="text-slate-200 hover:text-blue-600 focus:outline-none transition-all duration-300">
               <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                 </path>
@@ -414,18 +425,18 @@
       </div>
 
       <!-- Mobile Navigation Menu -->
-      <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur-sm border-t border-gray-100">
-        <div class="px-4 pt-3 pb-4 space-y-2">
+      <div id="mobile-menu" class="hidden md:hidden bg-slate-950/90 backdrop-blur-md border-b border-slate-800 z-50">
+        <div class="px-4 pt-3 pb-4 space-y-2 bg-slate-950/90 backdrop-blur-md">
           <a href="#problem"
-            class="block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Problem</a>
+            class="block px-4 py-3 text-slate-200 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Problem</a>
           <a href="#solution"
-            class="block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Solution</a>
+            class="block px-4 py-3 text-slate-200 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Solution</a>
           <a href="#benefits"
-            class="block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Benefits</a>
+            class="block px-4 py-3 text-slate-200 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Benefits</a>
           <a href="#expertise"
-            class="block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Expertise</a>
+            class="block px-4 py-3 text-slate-200 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Expertise</a>
           <button
-            class="w-full mt-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:scale-[1.02] transition-all duration-300 font-medium shadow-lg hover:shadow-blue-200">
+            class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-2.5 rounded-lg hover:from-blue-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-blue-500/20">
             Get Started
           </button>
         </div>
@@ -479,11 +490,11 @@
       window.addEventListener('scroll', () => {
         const navbar = document.getElementById('navbar');
         if (window.scrollY > 0) {
-          navbar.classList.add('bg-white/95');
-          navbar.classList.remove('bg-white/90');
+          navbar.classList.add('bg-slate-950/95');
+          navbar.classList.remove('bg-slate-950/90');
         } else {
-          navbar.classList.add('bg-white/90');
-          navbar.classList.remove('bg-white/95');
+          navbar.classList.add('bg-slate-950/90');
+          navbar.classList.remove('bg-slate-950/95');
         }
       });
     </script>
@@ -513,35 +524,6 @@
         }
       }
     </style>
-  </div>
-</element>
-<element id="67e4294c-f65c-4c44-9865-07d19e6cc2b9" data-section-id="67e4294c-f65c-4c44-9865-07d19e6cc2b9">
-
-  <section id="hero"
-    class="relative pt-20 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 min-h-[90vh] overflow-hidden">
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <div class="flex-shrink-0">
-            <span
-              class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">KraftX</span>
-          </div>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-center space-x-8">
-              <a href="#" class="text-slate-200 hover:text-blue-400 transition-colors duration-200">Solutions</a>
-              <a href="#" class="text-slate-200 hover:text-blue-400 transition-colors duration-200">Features</a>
-              <a href="#" class="text-slate-200 hover:text-blue-400 transition-colors duration-200">About</a>
-              <a href="#" class="text-slate-200 hover:text-blue-400 transition-colors duration-200">Contact</a>
-              <button
-                class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-2.5 rounded-lg hover:from-blue-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-blue-500/20">
-                Get Started
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -554,8 +536,7 @@
           </h1>
           <p class="text-xl text-slate-300 leading-relaxed max-w-2xl"
             style="animation-delay: calc(2 * var(--stagger-delay));">
-            Reimagine healthcare RCM workflows with human-grade AI agents designed for efficiency, accuracy, and
-            scalability
+            Revolutionize healthcare RCM workflows with human-grade AI agents, delivering unparalleled efficiency, accuracy, scalability, and seamless process optimization.
           </p>
           <div class="flex flex-col sm:flex-row gap-6" style="animation-delay: calc(3 * var(--stagger-delay));">
             <button
@@ -635,10 +616,10 @@
           animation-fill-mode: forwards;
         }
       </style>
+    </div>
   </section>
 </element>
 <element id="bce2adf5-599f-422c-a034-1677e8a58bbf" data-section-id="bce2adf5-599f-422c-a034-1677e8a58bbf">
-
   <section id="problem" class="py-24 bg-gradient-to-tr from-slate-900 via-slate-800 to-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-20 animate__animated animate__fadeIn">
@@ -797,7 +778,7 @@
           <h3 class="text-2xl font-bold mb-4 text-white" id="el-feg8sztb">Eligibility Verification</h3>
           <p class="text-slate-300 mb-6 leading-relaxed" id="el-vzzzx727">Achieve 90% faster verification through
             advanced voice and web-based processing</p>
-          <div class="text-blue-400 font-semibold flex items-center group-hover:text-blue-300 transition-colors"
+          <!-- <div class="text-blue-400 font-semibold flex items-center group-hover:text-blue-300 transition-colors"
             id="el-lj0p339m">
             Learn More
             <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
@@ -805,7 +786,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" id="el-czghwz02">
               </path>
             </svg>
-          </div>
+          </div> -->
         </div>
 
         <!-- Card 2 -->
@@ -824,7 +805,7 @@
           <h3 class="text-2xl font-bold mb-4 text-white" id="el-3w1ik813">Prior Authorization</h3>
           <p class="text-slate-300 mb-6 leading-relaxed" id="el-cyeqn2o7">Expedite authorizations 10x faster with
             industry-leading approval rates</p>
-          <div class="text-violet-400 font-semibold flex items-center group-hover:text-violet-300 transition-colors"
+          <!-- <div class="text-violet-400 font-semibold flex items-center group-hover:text-violet-300 transition-colors"
             id="el-k4tv9e3f">
             Learn More
             <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
@@ -832,7 +813,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" id="el-0zy7j7ib">
               </path>
             </svg>
-          </div>
+          </div> -->
         </div>
 
         <!-- Card 3 -->
@@ -851,7 +832,7 @@
           <h3 class="text-2xl font-bold mb-4 text-white" id="el-njvl47rr">Medical Coding</h3>
           <p class="text-slate-300 mb-6 leading-relaxed" id="el-e3p8vzij">Reduce coding time by 70% while maintaining
             superior accuracy standards</p>
-          <div class="text-purple-400 font-semibold flex items-center group-hover:text-purple-300 transition-colors"
+          <!-- <div class="text-purple-400 font-semibold flex items-center group-hover:text-purple-300 transition-colors"
             id="el-gu9f4q4n">
             Learn More
             <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
@@ -859,7 +840,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" id="el-7zwslf67">
               </path>
             </svg>
-          </div>
+          </div> -->
         </div>
         <div
           class="group bg-slate-800/50 backdrop-blur-xl p-8 rounded-3xl hover:scale-105 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-blue-500/50"
@@ -875,13 +856,13 @@
           <h3 class="text-2xl font-bold mb-4 text-white">Claims Scrubbing and Validation</h3>
           <p class="text-slate-300 mb-6 leading-relaxed">Reduce denials and costly rework while maintaining superior
             accuracy standards</p>
-          <div class="text-[#2F71F0] font-semibold flex items-center group-hover:text-[#2F71F0] transition-colors">
+          <!-- <div class="text-[#2F71F0] font-semibold flex items-center group-hover:text-[#2F71F0] transition-colors">
             Learn More
             <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
               viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
-          </div>
+          </div> -->
         </div>
         <div
           class="group bg-slate-800/50 backdrop-blur-xl p-8 rounded-3xl hover:scale-105 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-violet-500/50"
@@ -896,13 +877,13 @@
           </div>
           <h3 class="text-2xl font-bold mb-4 text-white">Denial Management</h3>
           <p class="text-slate-300 mb-6 leading-relaxed">Claim corrections in minutes. Submit 10x appeals per day</p>
-          <div class="text-[#844BF2] font-semibold flex items-center group-hover:text-[#844BF2] transition-colors">
+          <!-- <div class="text-[#844BF2] font-semibold flex items-center group-hover:text-[#844BF2] transition-colors">
             Learn More
             <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
               viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
-          </div>
+          </div> -->
         </div>
         <div
           class="group bg-slate-800/50 backdrop-blur-xl p-8 rounded-3xl hover:scale-105 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-purple-500/50"
@@ -918,7 +899,7 @@
           </div>
           <h3 class="text-2xl font-bold mb-4 text-white" id="el-njvl47rr">Payment Posting</h3>
           <p class="text-slate-300 mb-6 leading-relaxed" id="el-e3p8vzij">95% reduction in payment posting</p>
-          <div class="text-purple-400 font-semibold flex items-center group-hover:text-purple-300 transition-colors"
+          <!-- <div class="text-purple-400 font-semibold flex items-center group-hover:text-purple-300 transition-colors"
             id="el-gu9f4q4n">
             Learn More
             <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
@@ -926,7 +907,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" id="el-7zwslf67">
               </path>
             </svg>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -1073,7 +1054,7 @@
     class="py-24 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50 via-slate-50 to-purple-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="el-vyl4zzj6">
       <!-- Header Section -->
-      <div class="text-center mb-20 [view-transition-name:header] motion-safe:animate-fade-in" id="el-bxrc7wuk">
+      <div class="text-center mb-10 [view-transition-name:header] motion-safe:animate-fade-in" id="el-bxrc7wuk">
         <h2
           class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-indigo-800 to-purple-900 bg-clip-text text-transparent mb-8 leading-tight"
           id="el-ooyzgcpt">Powered by Engineers from Top Tech Companies</h2>
@@ -1086,52 +1067,133 @@
 
       <!-- Company Logos -->
       <div class="relative overflow-hidden">
-        <!-- Outer wrapper for scrolling -->
-        <div class="flex gap-8 flex-row animate-scrol whitespace-nowrap justify-center">
+        <div class="scroll imgBox mb-10" style="--time:25s">
+        <div>
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="">
+            <img src="./assets/cisco.png" alt="">
+            <img src="./assets/flipkart.svg" alt="">
+            <img src="./assets/nest.png" alt="">
+            <img src="./assets/netapp.png" alt="">
+            <img class="h-12" src="./assets/ey.png" alt="">
+            <img src="./assets/kearney.svg" alt="">
+        </div>
+        <div>
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="">
+            <img src="./assets/cisco.png" alt="">
+            <img src="./assets/flipkart.svg" alt="">
+            <img src="./assets/nest.png" alt="">
+            <img src="./assets/netapp.png" alt="">
+            <img class="h-12" src="./assets/ey.png" alt="">
+            <img src="./assets/kearney.svg" alt="">
+        </div>
+    </div>
 
-          <!-- Original Grid Items -->
-          <div
-            class="group flex items-center justify-center p-6 backdrop-blur-md rounded-2xl transition-all duration-500 hover:-translate-y-1">
-            <div class="flex items-center justify-center gap-3 w-full">
+<style>
+.scroll {
+    position: relative;
+    display: flex;
+    width: 80%;
+    overflow: hidden;
+    justify-self: center;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #fff 5%, #fff 95%, transparent)
+
+}
+
+.scroll div {
+    white-space: nowrap;
+    animation: scroll var(--time) linear infinite;
+    animation-delay: calc(var(--time)*-1);
+
+}
+
+.scroll div:nth-child(2) {
+    animation: scroll2 var(--time) linear infinite;
+    animation-delay: calc(var(--time)/-2);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll2 {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+.scroll div span {
+    display: inline-flex;
+    margin: 40px;
+    color: #fff;
+    transition: 0.5s;
+}
+
+
+.imgBox div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgBox img {
+    /* width: auto;
+    height: 64px; */
+    max-width: 100px;
+    scale: 0.8;
+    margin-inline: 20px;
+}
+</style>
+
+        <!-- <div id="scrollContent" class="flex">
+          <div class="flex animate-scroll relative">
+            <div class="flex-none w-32 h-32 m-4 flex items-center justify-center">
               <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
                 alt="Google Logo"
                 class="h-8 group-hover:scale-110 transition-transform transition-opacity duration-300 opacity-100"
                 loading="lazy">
             </div>
-          </div>
-          <div
-            class="grid-item group flex items-center justify-center p-6 backdrop-blur-md rounded-2xl transition-all duration-500 hover:-translate-y-1">
+            <div class="flex-none w-32 h-32 m-4 flex items-center justify-center">
             <img src="./assets/flipkart.svg" alt="Flipkart Logo"
               class="h-16 group-hover:scale-110 transition-transform transition-opacity duration-300 opacity-100"
               loading="lazy" onerror="this.onerror=null; this.style.display='none';"
               onload="this.style.display='block';">
-          </div>
-          <div
-            class="grid-item group flex items-center justify-center p-6 backdrop-blur-md rounded-2xl transition-all duration-500 hover:-translate-y-1">
+            </div>
+            <div class="flex-none w-32 h-32 m-4 flex items-center justify-center">
             <img src="./assets/nest.png" alt="Flipkart Logo"
               class="h-16 group-hover:scale-110 transition-transform transition-opacity duration-300 opacity-100"
               loading="lazy" onerror="this.onerror=null; this.style.display='none';"
               onload="this.style.display='block';">
-          </div>
-          <div
-            class="grid-item group flex items-center justify-center p-6 backdrop-blur-md rounded-2xl transition-all duration-500 hover:-translate-y-1">
+            </div>
+            <div class="flex-none w-32 h-32 m-4 flex items-center justify-center">
             <img src="./assets/cisco.png" alt="Cisco Logo"
               class="h-16 group-hover:scale-110 transition-transform transition-opacity duration-300 opacity-100"
               loading="lazy">
-          </div>
-          <div
-            class="grid-item group flex items-center justify-center p-6 backdrop-blur-md rounded-2xl transition-all duration-500 hover:-translate-y-1">
+            </div>
+            <div class="flex-none w-32 h-32 m-4 flex items-center justify-center">
             <img src="./assets/netapp.png" alt="NetApp Logo"
               class="h-16 group-hover:scale-110 transition-transform transition-opacity duration-300 opacity-100"
               loading="lazy">
-          </div>
-          <div
-            class="grid-item group flex items-center justify-center p-6 backdrop-blur-md rounded-2xl transition-all duration-500 hover:-translate-y-1">
+            </div>
+            <div class="flex-none w-32 h-32 m-4 flex items-center justify-center">
             <img src="./assets/ey.png" alt="EY Logo"
               class="h-16 group-hover:scale-110 transition-transform transition-opacity duration-300 opacity-100"
               loading="lazy">
-          </div>
+            </div>
         </div>
+    </div> -->
+
+        <!-- Outer wrapper for scrolling -->
+      </div>
 
 
         <!-- Expertise Highlights -->
@@ -1211,7 +1273,6 @@
       </div>
   </section>
 </element>
-
 
 
 <section id="cta" class="py-32 bg-gradient-to-tr from-slate-900 via-indigo-950 to-blue-900 relative overflow-hidden">
@@ -1421,3 +1482,4 @@
   </body>
 
   </html>
+</body>
