@@ -1,0 +1,39 @@
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Hi, thank you for calling Aetna. My name is Sam. How may I assist you today?"}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Hello, my name is Jenny from Allegan General Hospital. I'm calling to check the status of a claim for one of our patients."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Sure, I can help you with that. Can you please share your callback number before we proceed?"}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Of course. My callback number is 469..26..26..953."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Thank you so much. Now, can you please provide your NPI number?"}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Sure. The NPI number is 129..580.3.3.7.7."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "All right, thank you very much. Can I please get the patient's member ID?"}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Certainly. The patient's member ID is AWFBC223-567890."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "All right, thank you. Can you please confirm the patient's name and date of birth?"}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Sure. The patient's name is John Doe, and the date of birth is June 12th, 1990."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "All right, thank you so much for all that information. Now, how can I help you?"}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "I'd like to check the status of a claim for this patient with the date of service December 11th, 2024."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Sure, December 11th, 2024. Can you please confirm the billed amount?"}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Yes, the billed amount is 1,637 dollars."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Great. I was able to locate the claim and the claim status is denied."}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "I see. Could you please provide the denial reason along with the claim received date and denial date?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "The claim was denied because there was no authorization on file."}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Got it. Could you please provide the claim received date and denial date?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Yes, the claim submission date is December 13th, 2024, and it was denied on January the 5th, 2025."}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Thank you for that information. I do have an authorization number on file 7654321. Could you please reprocess the claim using this authorization number?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Let me check. Can you please repeat that authorization number and please read it out slowly? AI AR Caller: Of course. 7..6..5..4..3..2..1. Please confirm if you got that correctly."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "I got that. I was able to look up the authorization number and it's not valid for this claim."}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "I see. Could you clarify why the authorization number is not valid for this claim?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "The authorization number is not valid for the date of service."}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Thank you for clarifying. Since the authorization number is not valid for the date of service, could you check if there was a hospital claim billed on the same date where an authorization number is present? If so, can you use that for reprocessing?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "I was not able to find any other authorization number for any hospital claims for the same date of service."}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Understood. In that case, is it possible to obtain retro-authorization for this claim?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "I'm sorry, we don't support retro authorizations."}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "I understand. In that case, would an appeal be the appropriate next step?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Sure, yeah. You can submit an appeal."}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Could you provide the fax number or mailing address for submitting the appeal?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "The fax number is 855...411..9633."}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Thank you. Could you also provide the deadline for submitting the appeal?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "The deadline is 90 days from the date of denial."}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Got it. Before we wrap up, could you provide the claim reference number and a call reference number for this conversation?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Sure. The claim reference number is 202...415...37982 and the call reference number is 71..398."}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Thank you for that information."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Is there anything else I can help you with?"}}
+{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "No, that's all. Thank you for your help. Have a great day."}}
