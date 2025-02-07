@@ -1,0 +1,840 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      
+      <title>{{project.seoTitle}}</title>
+      <!-- SEO Description -->
+      <meta name="description" content="{{project.seoDescription}}">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+       <link href="{{fontLink}}" rel="stylesheet">
+       <link href="{{secondaryFontLink}}" rel="stylesheet">
+      
+
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+
+
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      
+      
+
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <!-- Font stylesheet -->
+
+      <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: {
+                  DEFAULT: '{{settings.colors.primary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8', 
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                secondary: {
+                  DEFAULT: '{{settings.colors.secondary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3', 
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                accent: {
+                  DEFAULT: '{{settings.colors.accent}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3', 
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+              },
+              fontFamily: {
+                sans: ['{{settings.fonts.primary}}', 'Roboto', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                heading: ['{{settings.fonts.secondary}}', 'system-ui', 'sans-serif'],
+                body: ['{{settings.fonts.secondary}}', 'system-ui', 'sans-serif'],
+              },
+              spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '30': '7.5rem',
+              },
+              maxWidth: {
+                '8xl': '88rem',
+                '9xl': '96rem',
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-in',
+                'fade-out': 'fadeOut 0.5s ease-out',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'slide-down': 'slideDown 0.5s ease-out',
+                'slide-left': 'slideLeft 0.5s ease-out',
+                'slide-right': 'slideRight 0.5s ease-out',
+                'scale-in': 'scaleIn 0.5s ease-out',
+                'scale-out': 'scaleOut 0.5s ease-out',
+                'spin-slow': 'spin 3s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 3s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                fadeOut: {
+                  '0%': { opacity: '1' },
+                  '100%': { opacity: '0' },
+                },
+                slideUp: {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideLeft: {
+                  '0%': { transform: 'translateX(20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideRight: {
+                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                scaleIn: {
+                  '0%': { transform: 'scale(0.9)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                scaleOut: {
+                  '0%': { transform: 'scale(1.1)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                },
+              },
+              aspectRatio: {
+                'portrait': '3/4',
+                'landscape': '4/3',
+                'ultrawide': '21/9',
+              },
+            },
+          },
+          variants: {
+            extend: {
+              opacity: ['disabled'],
+              cursor: ['disabled'],
+              backgroundColor: ['active', 'disabled'],
+              textColor: ['active', 'disabled'],
+            },
+          },
+        }
+      });
+      </script>
+
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="keywords" content="{{project.meta.keywords}}">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      <meta name="google-site-verification" content="{{project.meta.googleVerification}}">
+      <meta name="baidu-verification" content="{{project.meta.baiduVerification}}">
+      <meta name="yandex-verification" content="{{project.meta.yandexVerification}}">
+      <meta name="bing-verification" content="{{project.meta.bingVerification}}">
+      <meta property="og:title" content="{{project.meta.ogTitle}}">
+      <meta property="og:description" content="{{project.meta.ogDescription}}">
+      <meta property="og:image" content="{{project.meta.ogImage}}">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="{{project.name}}">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="{{project.meta.ogTitle}}">
+      <meta name="twitter:description" content="{{project.meta.ogDescription}}">
+      <meta name="twitter:image" content="{{project.meta.ogImage}}">
+
+      
+      <link rel="icon" type="image/x-icon" href="{{settings.favicon}}">
+      
+      <style>
+        h1, h2, h3, h4, h5, h6 {
+          font-family: {{settings.fonts.primary}}, system-ui, sans-serif;
+        }
+        body {
+          font-family: {{settings.fonts.secondary}}, system-ui, sans-serif;
+        }
+      </style>
+   </head>
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Header -->
+      <header class="relative z-50 bg-white dark:bg-gray-900">
+        <!-- Header content goes here -->
+      </header>
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative">
+        <!-- Content will be injected here -->
+      </main>
+
+      <!-- {bodyScripts} -->
+
+   </body>
+</html><element id="5b69e476-874d-4fae-b3c4-24c8b18909e8" data-section-id="5b69e476-874d-4fae-b3c4-24c8b18909e8">
+
+<div id="root">
+  <nav id="navbar" class="fixed w-full z-50 bg-neutral-900/90 backdrop-blur-sm tah-fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <span class="text-white text-xl font-bold tah-hover_effects-scale-hover">KraftX</span>
+        </div>
+        
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+              <a href="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors tah-fade-in tah-hover_effects-scale-hover" style="animation-delay: calc(0 * 0.1s);">Home</a>
+              <a href="#demo" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors tah-fade-in tah-hover_effects-scale-hover" style="animation-delay: calc(1 * 0.1s);">Demo</a>
+              <a href="#problems" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors tah-fade-in tah-hover_effects-scale-hover" style="animation-delay: calc(2 * 0.1s);">Problems</a>
+              <a href="#solution" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors tah-fade-in tah-hover_effects-scale-hover" style="animation-delay: calc(3 * 0.1s);">Solution</a>
+              <a href="#whyus" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors tah-fade-in tah-hover_effects-scale-hover" style="animation-delay: calc(4 * 0.1s);">Why Us</a>
+              <a href="#expertise" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors tah-fade-in tah-hover_effects-scale-hover" style="animation-delay: calc(5 * 0.1s);">Expertise</a>
+              <a href="#cta" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors tah-fade-in tah-hover_effects-scale-hover" style="animation-delay: calc(6 * 0.1s);">Contact</a>
+            <a href="#cta" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors tah-scale-scale-in tah-hover_effects-scale-hover">Schedule Demo</a>
+          </div>
+        </div>
+
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none transition-colors">
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-neutral-900">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a href="/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium tah-slide-slide-right" style="animation-delay: calc(0 * 0.1s);">Home</a>
+          <a href="#demo" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium tah-slide-slide-right" style="animation-delay: calc(1 * 0.1s);">Demo</a>
+          <a href="#problems" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium tah-slide-slide-right" style="animation-delay: calc(2 * 0.1s);">Problems</a>
+          <a href="#solution" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium tah-slide-slide-right" style="animation-delay: calc(3 * 0.1s);">Solution</a>
+          <a href="#whyus" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium tah-slide-slide-right" style="animation-delay: calc(4 * 0.1s);">Why Us</a>
+          <a href="#expertise" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium tah-slide-slide-right" style="animation-delay: calc(5 * 0.1s);">Expertise</a>
+          <a href="#cta" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium tah-slide-slide-right" style="animation-delay: calc(6 * 0.1s);">Contact</a>
+        <a href="#cta" class="bg-blue-600 text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-700 tah-scale-scale-in">Schedule Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      const isMenuHidden = mobileMenu.classList.contains('hidden');
+      
+      if (isMenuHidden) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', 'true');
+        mobileMenu.classList.add('tah-slide-slide-down');
+      } else {
+        mobileMenu.classList.add('tah-fade-fade-out');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.remove('tah-fade-fade-out');
+          mobileMenu.classList.remove('tah-slide-slide-down');
+        }, 500);
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('tah-fade-fade-out');
+          setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            mobileMenu.classList.remove('tah-fade-fade-out');
+            mobileMenu.classList.remove('tah-slide-slide-down');
+          }, 500);
+        }
+      }
+    });
+
+    // Handle smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</div></element><element id="e69a1372-3491-4cf7-aefc-4ed1398659ee" data-section-id="e69a1372-3491-4cf7-aefc-4ed1398659ee">
+
+<section id="hero" class="min-h-[70vh] bg-neutral-900 relative overflow-hidden pt-20">
+  <!-- Background gradient effect -->
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-neutral-900"></div>
+  
+  <!-- Animated background dots -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#60a5fa_1px,transparent_0)] bg-[size:40px_40px] opacity-20"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-16 pb-20">
+    <div class="text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-[slideDown_0.5s_ease-out]">
+        Supercharge Your AR Calling with <span class="text-blue-500">Human-Grade AI agents</span>
+      </h1>
+      
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-12 animate-[fadeIn_0.5s_ease-in] [animation-delay:0.3s]">
+        Experience a revolutionary way to handle AR calls—our AI agent slashes your AR efforts by 40–50% while delivering human-grade results.
+      </p>
+
+      <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-12 animate-[slideUp_0.5s_ease-out] [animation-delay:0.6s]">
+        <div class="bg-neutral-800/50 backdrop-blur-sm p-6 rounded-xl border border-neutral-700 hover:scale-105 transition-all duration-500">
+          <div class="text-3xl font-bold text-blue-500 mb-2">40-50%</div>
+          <div class="text-gray-300">reduction in AR calling costs</div>
+        </div>
+        
+        <div class="bg-neutral-800/50 backdrop-blur-sm p-6 rounded-xl border border-neutral-700 hover:scale-105 transition-all duration-500">
+          <div class="text-3xl font-bold text-blue-500 mb-2">10-20%</div>
+          <div class="text-gray-300">increase in collected revenue</div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 items-center animate-[fadeIn_0.5s_ease-in] [animation-delay:0.9s]">
+        <a href="#cta" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all hover:scale-105">
+          Schedule a Demo
+        </a>
+        <p class="text-gray-400 text-lg">Ready to see it in action?</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    
+    @keyframes slideDown {
+      0% { transform: translateY(-20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</section></element><element id="29eb639e-2b12-4866-bfd2-5395c833bd61" data-section-id="29eb639e-2b12-4866-bfd2-5395c833bd61">
+
+<section id="demo" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-neutral-900 mb-6" data-tah="staggered_fade_in.fade-in-up">
+        Experience the KraftX AI agents in action
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <div class="bg-neutral-100 rounded-xl p-6" data-tah="slide.slide-left">
+        <h3 class="text-xl font-semibold mb-4">Auth Missing Denial</h3>
+        <div class="aspect-video bg-neutral-200 rounded-lg flex items-center justify-center" data-tah="hover_effects.scale-hover">
+          <div class="text-neutral-500">Video Placeholder</div>
+        </div>
+      </div>
+
+      <div class="bg-neutral-100 rounded-xl p-6" data-tah="slide.slide-right">
+        <h3 class="text-xl font-semibold mb-4">Coding Mismatch Denial</h3>
+        <div class="aspect-video bg-neutral-200 rounded-lg flex items-center justify-center" data-tah="hover_effects.scale-hover">
+          <div class="text-neutral-500">Video Placeholder</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-lg text-neutral-600 mb-8" data-tah="staggered_fade_in.fade-in-up">
+        Our AI agents can handle a wide range of 50+ pre-built AR scenarios including Medical Necessity, Referral Requirements, Bundled Services etc. You can customize and build your own scenarios
+      </p>
+    </div>
+
+    <div class="flex justify-center">
+      <button id="add-video" class="px-6 py-3 bg-neutral-200 hover:bg-neutral-300 rounded-lg text-neutral-700 font-medium" data-tah="hover_effects.scale-hover">
+        + Add More Videos
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById('add-video').addEventListener('click', function() {
+  const videoGrid = document.querySelector('.grid');
+  const newVideo = document.createElement('div');
+  newVideo.className = 'bg-neutral-100 rounded-xl p-6';
+  newVideo.setAttribute('data-tah', 'fade.fade-in');
+  newVideo.innerHTML = `
+    <h3 class="text-xl font-semibold mb-4">New Scenario</h3>
+    <div class="aspect-video bg-neutral-200 rounded-lg flex items-center justify-center" data-tah="hover_effects.scale-hover">
+      <div class="text-neutral-500">Video Placeholder</div>
+    </div>
+  `;
+  videoGrid.appendChild(newVideo);
+});</script></element><element id="6d56f5e1-d6c2-4bd6-bb39-4abd48d96f51" data-section-id="6d56f5e1-d6c2-4bd6-bb39-4abd48d96f51">
+
+<section id="problems" class="py-20 bg-neutral-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-white mb-6" data-tah="fade-in-up">
+        The Challenge: What's Holding Your AR Process Back?
+      </h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-tah="fade-in-up" style="animation-delay: 0.2s">
+        Healthcare RCM teams are struggling with increased AR calling costs and quality challenges
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-neutral-800 rounded-xl p-6" data-tah="fade-in-up scale-hover" style="animation-delay: 0.3s">
+        <div class="h-12 w-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-white text-xl font-semibold mb-3">Long IVRs & Hold Times</h3>
+        <p class="text-gray-400">Reduces productivity of skilled AR callers</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-neutral-800 rounded-xl p-6" data-tah="fade-in-up scale-hover" style="animation-delay: 0.4s">
+        <div class="h-12 w-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+          </svg>
+        </div>
+        <h3 class="text-white text-xl font-semibold mb-3">High Turnover</h3>
+        <p class="text-gray-400">~40-50% attrition rate leading to increased hiring costs</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-neutral-800 rounded-xl p-6" data-tah="fade-in-up scale-hover" style="animation-delay: 0.5s">
+        <div class="h-12 w-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <h3 class="text-white text-xl font-semibold mb-3">Longer Ramp Up</h3>
+        <p class="text-gray-400">Minimum 90 days of ramp-up time resulting in very high training costs</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-neutral-800 rounded-xl p-6" data-tah="fade-in-up scale-hover" style="animation-delay: 0.6s">
+        <div class="h-12 w-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+          </svg>
+        </div>
+        <h3 class="text-white text-xl font-semibold mb-3">Higher Denial Rates</h3>
+        <p class="text-gray-400">Inexperienced teams struggle with payer-specific rules and frequent policy changes</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-neutral-800 rounded-xl p-6" data-tah="fade-in-up scale-hover" style="animation-delay: 0.7s">
+        <div class="h-12 w-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+          </svg>
+        </div>
+        <h3 class="text-white text-xl font-semibold mb-3">High Rate of Rework</h3>
+        <p class="text-gray-400">Reps often miss key details from payer calls, causing rework</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-neutral-800 rounded-xl p-6" data-tah="fade-in-up scale-hover" style="animation-delay: 0.8s">
+        <div class="h-12 w-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-white text-xl font-semibold mb-3">Lost Revenue</h3>
+        <p class="text-gray-400">Resource constraints force claim prioritization, missing low-value and low-probability payouts</p>
+      </div>
+    </div>
+  </div>
+</section></element><element id="690c030b-0cdd-46d9-976c-892366b91f2a" data-section-id="690c030b-0cdd-46d9-976c-892366b91f2a">
+
+<section id="solution" class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-white mb-6" data-tah="staggered_fade_in">
+        Meet Your Purpose-Built KraftX AR Agent
+      </h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-tah="staggered_fade_in" style="animation-delay: 0.2s">
+        Our AI agent handles up to 60% of AR payer calls, freeing your team for more complex tasks.
+      </p>
+    </div>
+
+    <div class="mb-20">
+      <h3 class="text-2xl font-bold text-white mb-8 text-center">How it works</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#2F71F0]" data-tah="slide.slide-up">
+          <div class="h-12 w-12 bg-[#2F71F0]/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#2F71F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold mb-2 text-white">Navigate IVR Menus</h4>
+          <p class="text-gray-300">Automatically routes through payer-specific call trees.</p>
+        </div>
+
+        <div class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#844BF2]" data-tah="slide.slide-up" style="animation-delay: 0.2s">
+          <div class="h-12 w-12 bg-[#844BF2]/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#844BF2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold mb-2 text-white">Patiently Waits on Hold</h4>
+          <p class="text-gray-300">Frees human agents to handle more complex tasks.</p>
+        </div>
+
+        <div class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#2F71F0]" data-tah="slide.slide-up" style="animation-delay: 0.4s">
+          <div class="h-12 w-12 bg-[#2F71F0]/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#2F71F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold mb-2 text-white">Resolves Issues With Live Agents</h4>
+          <p class="text-gray-300">Engages in real-time conversations, capturing every crucial detail.</p>
+        </div>
+
+        <div class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#844BF2]" data-tah="slide.slide-up" style="animation-delay: 0.6s">
+          <div class="h-12 w-12 bg-[#844BF2]/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#844BF2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold mb-2 text-white">Real-Time EHR Updates</h4>
+          <p class="text-gray-300">No manual data entry or missed action items.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-slate-800/50 rounded-2xl p-8 lg:p-12 border border-[#2F71F0]">
+      <h3 class="text-2xl font-bold text-white mb-8 text-center">Key Features</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div data-tah="fade.fade-in">
+          <h4 class="text-lg font-semibold mb-2 text-white">Pre-Built Scenarios</h4>
+          <p class="text-gray-300">Tailored call flows for common AR challenges right out of the box.</p>
+        </div>
+
+        <div data-tah="fade.fade-in" style="animation-delay: 0.2s">
+          <h4 class="text-lg font-semibold mb-2 text-white">Easy Scenario Builder</h4>
+          <p class="text-gray-300">Customize call flows for complex or unique payer requirements.</p>
+        </div>
+
+        <div data-tah="fade.fade-in" style="animation-delay: 0.4s">
+          <h4 class="text-lg font-semibold mb-2 text-white">Continuous Learning</h4>
+          <p class="text-gray-300">Gains intelligence from every call, improving performance over time.</p>
+        </div>
+
+        <div data-tah="fade.fade-in" style="animation-delay: 0.6s">
+          <h4 class="text-lg font-semibold mb-2 text-white">Scheduled &amp; Parallel Calls</h4>
+          <p class="text-gray-300">Place 100s of calls simultaneously during optimal payer availability.</p>
+        </div>
+
+        <div data-tah="fade.fade-in" style="animation-delay: 0.8s">
+          <h4 class="text-lg font-semibold mb-2 text-white">Strategic Handoffs</h4>
+          <p class="text-gray-300">Automatically escalates complex cases to human agents.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="#" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-[#2F71F0] to-[#844BF2] hover:from-[#60A5FA] hover:to-[#A78BFA] md:py-4 md:text-lg md:px-10 transition-all hover:scale-105" data-tah="hover_effects.scale-hover">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+</section></element><element id="a16b6e58-09ce-4bdc-9aa0-a13bd671eda8" data-section-id="a16b6e58-09ce-4bdc-9aa0-a13bd671eda8">
+
+<section id="whyus" class="py-20 bg-neutral-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-white mb-6" data-tah="fade-in-up">
+        Built for RCM teams by Industry Experts
+      </h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-tah="fade-in-up" style="animation-delay: 0.2s">
+        We understand the unique challenges of RCM teams. Our AI solutions integrate seamlessly with your existing workflows, empowering you to deliver unparalleled value to your customers.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <div class="bg-neutral-800 rounded-xl p-8" data-tah="fade-in-up scale-hover" style="animation-delay: 0.3s">
+        <div class="h-14 w-14 bg-blue-600/20 rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-4">Cutting-edge AI</h3>
+        <p class="text-gray-400">Purpose-built for healthcare RCM workflows.</p>
+      </div>
+
+      <div class="bg-neutral-800 rounded-xl p-8" data-tah="fade-in-up scale-hover" style="animation-delay: 0.4s">
+        <div class="h-14 w-14 bg-blue-600/20 rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-4">Seamless Integration</h3>
+        <p class="text-gray-400">Works with your existing tools and processes.</p>
+      </div>
+
+      <div class="bg-neutral-800 rounded-xl p-8" data-tah="fade-in-up scale-hover" style="animation-delay: 0.5s">
+        <div class="h-14 w-14 bg-blue-600/20 rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-4">Secure and Compliant</h3>
+        <p class="text-gray-400">Fully compliant and built with the highest security standards.</p>
+      </div>
+
+      <div class="bg-neutral-800 rounded-xl p-8" data-tah="fade-in-up scale-hover" style="animation-delay: 0.6s">
+        <div class="h-14 w-14 bg-blue-600/20 rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-4">Dedicated Support</h3>
+        <p class="text-gray-400">A team of human experts to ensure your success.</p>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <a href="#" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10" data-tah="fade-in-up scale-hover" style="animation-delay: 0.7s">
+        Learn More
+      </a>
+    </div>
+  </div>
+</section></element><element id="73ce8cb5-c473-44f0-8d86-cd9f31872cf7" data-section-id="73ce8cb5-c473-44f0-8d86-cd9f31872cf7">
+
+<section id="expertise" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-neutral-900 mb-6" data-tah="fade-in-up">
+        Powered by Engineers from Top Tech Companies
+      </h2>
+      <p class="text-xl text-neutral-600 max-w-3xl mx-auto" data-tah="fade-in-up" style="animation-delay: 0.2s">
+        At KraftX, our team is composed of engineers from the world's leading tech companies and top educational institutions. These experts drive the innovative capabilities of our agents, ensuring we deliver cutting-edge AI solutions.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-16">
+      <div class="flex items-center justify-center p-6 bg-neutral-50 rounded-xl" data-tah="fade-in-up scale-hover" style="animation-delay: 0s">
+        <span class="text-xl font-bold text-neutral-700">Google</span>
+      </div>
+      <div class="flex items-center justify-center p-6 bg-neutral-50 rounded-xl" data-tah="fade-in-up scale-hover" style="animation-delay: 0.2s">
+        <span class="text-xl font-bold text-neutral-700">Flipkart</span>
+      </div>
+      <div class="flex items-center justify-center p-6 bg-neutral-50 rounded-xl" data-tah="fade-in-up scale-hover" style="animation-delay: 0.4s">
+        <span class="text-xl font-bold text-neutral-700">Nest</span>
+      </div>
+      <div class="flex items-center justify-center p-6 bg-neutral-50 rounded-xl" data-tah="fade-in-up scale-hover" style="animation-delay: 0.6s">
+        <span class="text-xl font-bold text-neutral-700">Cisco</span>
+      </div>
+      <div class="flex items-center justify-center p-6 bg-neutral-50 rounded-xl" data-tah="fade-in-up scale-hover" style="animation-delay: 0.8s">
+        <span class="text-xl font-bold text-neutral-700">NetApp</span>
+      </div>
+      <div class="flex items-center justify-center p-6 bg-neutral-50 rounded-xl" data-tah="fade-in-up scale-hover" style="animation-delay: 1s">
+        <span class="text-xl font-bold text-neutral-700">E&Y</span>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <p class="text-lg text-neutral-600 mb-8" data-tah="fade-in-up" style="animation-delay: 1.2s">
+        Explore solutions to your RCM use-cases with us
+      </p>
+      <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10" data-tah="fade-in-up scale-hover" style="animation-delay: 1.4s">
+        Talk to us
+      </a>
+    </div>
+  </div>
+</section></element><element id="1e3c3260-b29c-424b-ab3f-6d0a6bd7b786" data-section-id="1e3c3260-b29c-424b-ab3f-6d0a6bd7b786">
+
+<section id="cta" class="py-20 bg-neutral-900 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-blue-600/10 rounded-3xl p-8 md:p-16 backdrop-blur-sm border border-blue-500/20">
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6" data-tah="staggered_fade_in.fade-in-up staggered_fade_in.fill-forwards">
+          Ready to Transform Your AR Calling Process?
+        </h2>
+        
+        <p class="text-xl text-gray-300 mb-8" data-tah="staggered_fade_in.fade-in-up staggered_fade_in.fill-forwards" style="animation-delay: 0.2s;">
+          Take the first step toward a more efficient, cost-effective AR workflow.
+        </p>
+
+        <p class="text-lg text-gray-300 mb-12" data-tah="staggered_fade_in.fade-in-up staggered_fade_in.fill-forwards" style="animation-delay: 0.4s;">
+          Experience the future of healthcare collections with our AR calling agents.
+        </p>
+
+        <div class="flex flex-col items-center gap-6">
+          <a href="#contact" 
+             class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold rounded-lg" 
+             data-tah="staggered_fade_in.fade-in-up staggered_fade_in.fill-forwards hover_effects.scale-hover"
+             style="animation-delay: 0.6s;">
+            Schedule a Demo
+          </a>
+          
+          <p class="text-gray-400 text-sm md:text-base max-w-2xl" 
+             data-tah="staggered_fade_in.fade-in-up staggered_fade_in.fill-forwards"
+             style="animation-delay: 0.8s;">
+            Discover how leading healthcare providers are reducing AR efforts by 40-50% while improving collection rates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background decoration -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,#60a5fa_0,transparent_50%)] opacity-10"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+  </div>
+</section></element><element id="de5a7bde-f8d9-4e4d-935a-f424f9616114" data-section-id="de5a7bde-f8d9-4e4d-935a-f424f9616114">
+
+<footer id="footer" class="bg-neutral-900 text-gray-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <!-- Company Info Section -->
+      <div class="col-span-1 md:col-span-2" data-tah="fade-in-up">
+        <div class="mb-4">
+          <span class="text-2xl font-bold text-white" data-tah="scale-hover">KraftX</span>
+        </div>
+        <p class="text-gray-400 max-w-md" data-tah="fade-in">
+          Transform your AR calling process with human-grade AI agents. Reduce efforts by 40-50% while improving collection rates.
+        </p>
+      </div>
+
+      <!-- Quick Links Section -->
+      <div data-tah="fade-in-up" style="--tah-delay: 0.2s">
+        <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+            <li>
+              <a href="/" class="hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Home</a>
+            </li>
+            <li>
+              <a href="/privacy" class="hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="/terms" class="hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Terms of Service</a>
+            </li>
+            <li>
+              <a href="#cta" class="hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Contact</a>
+            </li>
+        </ul>
+      </div>
+
+      <!-- Contact Section -->
+      <div data-tah="fade-in-up" style="--tah-delay: 0.4s">
+        <h3 class="text-white font-semibold mb-4">Contact</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:contact@kraftx.com" class="hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">contact@kraftx.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Section with Border -->
+    <div class="border-t border-neutral-800 pt-8 mt-8" data-tah="fade-in" style="--tah-delay: 0.6s">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="text-sm text-gray-400">
+          © 2024 KraftX. All rights reserved.
+        </div>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <!-- Social Icons with Hover Effects -->
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" data-tah="scale-hover">
+            <span class="sr-only">LinkedIn</span>
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" data-tah="scale-hover">
+            <span class="sr-only">Twitter</span>
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer></element>
+            <div id="page_complete">
+            <script>
+                console.log('Page complete');
+            </script>
+            </body>
+            </html>
+          
