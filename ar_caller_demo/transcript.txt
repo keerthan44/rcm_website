@@ -1,58 +1,62 @@
-Payer Rep: Hi, thank you for calling Aetna. My name is Sam. How may I assist you today? 
-AI AR Caller: Hello, my name is Jenny from Allegan General Hospital. I'm calling to check the status of a claim for one of our patients. 
+Payer Rep: Thanks for calling, Etna. My name is Sam. How may I assist you today? 
+KraftX AR Agent: Hello. My name is Jenny from Allegan General Hospital. I'm calling to check the status of a claim for one of our patients. Would you be able to help with that? 
 
-Payer Rep: Sure, I can help you with that. Can you please share your callback number before we proceed?
-AI AR Caller: Of course. My callback number is 469..26..26..953. 
+Payer Rep: Oh, you're calling from that hospital. I just heard about your practice on the news. Everything OK there? 
+KraftX AR Agent: Oh, I appreciate you asking. I'm here to check on a claim today. Would you be able to help me with that? 
 
-Payer Rep: Thank you so much. Now, can you please provide your NPI number? 
-AI AR Caller: Sure. The NPI number is 129..580.3.3.7.7. 
+Payer Rep: Sure, go ahead. Let's start with your NPI number, please. 
+KraftX AR Agent: Sure. The NPI number is 129..58.3.3.7.7. 
 
-Payer Rep: All right, thank you very much. Can I please get the patient's member ID? 
-AI AR Caller: Certainly. The patient's member ID is AWFBC223-567890.
+Payer Rep: All right, let me look that up. Unfortunately, I was not able to pull up your practice details with that NPI number. 
+KraftX AR Agent: The NPI number is 129.5.8.0.3.3.7.7. Please confirm once you have it. 
 
-Payer Rep: All right, thank you. Can you please confirm the patient's name and date of birth? 
-AI AR Caller: Sure. The patient's name is John Doe, and the date of birth is June 12th, 1990. 
+Payer Rep: All right, I think it was missing a number. Can you please share the patient's member ID now? 
+KraftX AR Agent: I'm glad we got that sorted. The member ID is A..789.02..761.1.. Let me know once you have it. 
 
-Payer Rep: All right, thank you so much for all that information. Now, how can I help you? 
-AI AR Caller: I'd like to check the status of a claim for this patient with the date of service December 11th, 2024. 
+Payer Rep: All right, and can you please confirm the patient's full address and social? 
+KraftX AR Agent: I'm sorry, but I can only provide details relevant to this claim. I can share the patient's name and date of service if that helps. 
 
-Payer Rep: Sure, December 11th, 2024. Can you please confirm the billed amount? 
-AI AR Caller: Yes, the billed amount is 1,637 dollars. 
+Payer Rep: Yeah, let's go ahead and do that. Can you please share the patient's name and date of birth? 
+KraftX AR Agent: Sure. The patient's name is Henry Thomas and the date of birth is November 15th, 1981. 
 
-Payer Rep: Great. I was able to locate the claim and the claim status is denied. 
-AI AR Caller: I see. Could you please provide the denial reason along with the claim received date and denial date? 
+Payer Rep: All right, thank you. So how can I help you here? 
+KraftX AR Agent: I'd like to check the status of a claim for this patient. The date of service is November 25th, 2024. Could you look that up for me? 
 
-Payer Rep: The claim was denied because there was no authorization on file. 
-AI AR Caller: Got it. Could you please provide the claim received date and denial date? 
+Payer Rep: November 25th, yes, I was able to pull that up. That claim was denied. 
+KraftX AR Agent: I see. Could you please provide the denial reason? 
 
-Payer Rep: Yes, the claim submission date is December 13th, 2024, and it was denied on January the 5th, 2025. 
-AI AR Caller: Thank you for that information. I do have an authorization number on file 7654321. Could you please reprocess the claim using this authorization number? 
+Payer Rep: It was denied because the diagnosis is inconsistent with the procedure. 
+KraftX AR Agent: Got it. That sounds like a CO-11 denial. Could you please provide the claim received date and the denial date? 
 
-Payer Rep: Let me check. Can you please repeat that authorization number and please read it out slowly? AI AR Caller: Of course. 7..6..5..4..3..2..1. Please confirm if you got that correctly. 
+Payer Rep: The claim was received on December 1st. 2024, and it was denied on December 5th, 2024. 
+KraftX AR Agent: Thank you for that. Just to confirm, did you mean the denial date was December 5th, 2024? 
 
-Payer Rep: I got that. I was able to look up the authorization number and it's not valid for this claim.
-AI AR Caller: I see. Could you clarify why the authorization number is not valid for this claim? 
+Payer Rep: Yes, that's correct. Thanks for confirming. 
+KraftX AR Agent: Could you also provide the CPT code and the diagnosis code that caused the mismatch? 
 
-Payer Rep: The authorization number is not valid for the date of service. 
-AI AR Caller: Thank you for clarifying. Since the authorization number is not valid for the date of service, could you check if there was a hospital claim billed on the same date where an authorization number is present? If so, can you use that for reprocessing? 
+Payer Rep: Sure, but can you share the patient's medical history to validate this? 
+KraftX AR Agent: I'm only able to discuss details related to this claim. Could you please provide the CPT code and diagnosis code that caused the mismatch? 
 
-Payer Rep: I was not able to find any other authorization number for any hospital claims for the same date of service. 
-AI AR Caller: Understood. In that case, is it possible to obtain retro-authorization for this claim? 
+Payer Rep: Okay, the CPT code is 92..928 and the diagnosis code is I1..10. 
+KraftX AR Agent: Got it. Just to confirm, the CPT code is 92..928 and the diagnosis code is I110. Is that correct? 
 
-Payer Rep: I'm sorry, we don't support retro authorizations. 
-AI AR Caller: I understand. In that case, would an appeal be the appropriate next step? 
+Payer Rep: I think I got the diagnosis code wrong. It's I10. It's just I10.
+KraftX AR Agent: Thanks for clarifying. So the correct diagnosis code is I10 and the CPT code is 92928. Got it. Since this looks like a diagnosis mismatch, is there a way to correct it or does this require a corrected claim submission? 
 
-Payer Rep: Sure, yeah. You can submit an appeal. 
-AI AR Caller: Could you provide the fax number or mailing address for submitting the appeal? 
+Payer Rep: I'm sorry, unfortunately, I cannot make any corrections on my side. You have to submit a corrected claim. 
+KraftX AR Agent: Understood. For the corrected claim submission, could you please confirm what needs to be included? Just the corrected diagnosis code, or are there any additional documents required? 
 
-Payer Rep: The fax number is 855...411..9633. 
-AI AR Caller: Thank you. Could you also provide the deadline for submitting the appeal? 
+Payer Rep: Yeah, you will have to include the correct diagnosis code and make sure you include any other relevant medical records and that can expedite the claim. 
+KraftX AR Agent: Got it. And how much time do we have to submit the corrected claim? 
 
-Payer Rep: The deadline is 90 days from the date of denial. 
-AI AR Caller: Got it. Before we wrap up, could you provide the claim reference number and a call reference number for this conversation? 
+Payer Rep: 30 days from the date of denial. 
+KraftX AR Agent: Thank you. Before we wrap up. Could you please provide the claim number and a call reference number? 
 
-Payer Rep: Sure. The claim reference number is 202...415...37982 and the call reference number is 71..398. 
-AI AR Caller: Thank you for that information. 
+Payer Rep: The claim number is 202..41..211, and the call reference number is 72..34..0. 
+KraftX AR Agent: Got it. 
 
-Payer Rep: Is there anything else I can help you with? 
-AI AR Caller: No, that's all. Thank you for your help. Have a great day.
+Payer Rep: Now, since you're on the line, do you also want to discuss the claim for the other patient you called about this morning? 
+KraftX AR Agent: I appreciate that, but right now I'm only handling this specific claim. Thanks for your help today. 
+
+Payer Rep: Alright, is there anything else I can help you with? 
+KraftX AR Agent: No, that covers everything. I appreciate your time. Have a great day.

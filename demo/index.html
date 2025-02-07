@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KraftX - Crafting your AI workforce for RCM">
+  <meta name="theme-color" content="#ffffff">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="../assets/favicon_title.png" type="image/png" sizes="600x600">
+  <title>Kraftx</title>
+
+
+
+  <!-- Performance optimization: Preload critical resources -->
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    as="style">
+
+  <!-- {headerScripts} -->
+
+  <!-- Core CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        screens: {
+          'xs': '320px',
+          'sm': '640px',
+          'md': '768px',
+          'lg': '1024px',
+          'xl': '1280px',
+          '2xl': '1536px',
+        },
+        extend: {
+          colors: {
+            primary: {
+              50: '#f8f8f8',
+              100: '#e8e8e8',
+              200: '#d3d3d3',
+              300: '#a3a3a3',
+              400: '#737373',
+              500: '#525252',
+              600: '#404040',
+              700: '#262626',
+              800: '#171717',
+              900: '#0a0a0a',
+              950: '#030303',
+            },
+            secondary: {
+              50: '#f8f8f8',
+              100: '#e8e8e8',
+              200: '#d3d3d3',
+              300: '#a3a3a3',
+              400: '#737373',
+              500: '#525252',
+              600: '#404040',
+              700: '#262626',
+              800: '#171717',
+              900: '#0a0a0a',
+              950: '#030303',
+            },
+            accent: {
+              50: '#f8f8f8',
+              100: '#e8e8e8',
+              200: '#d3d3d3',
+              300: '#a3a3a3',
+              400: '#737373',
+              500: '#525252',
+              600: '#404040',
+              700: '#262626',
+              800: '#171717',
+              900: '#0a0a0a',
+              950: '#030303',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+            heading: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
+          },
+          fontSize: ['responsive'],
+          spacing: {
+            '18': '4.5rem',
+            '22': '5.5rem',
+            '30': '7.5rem',
+          },
+          maxWidth: {
+            '8xl': '88rem',
+            '9xl': '96rem',
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-in',
+            'fade-out': 'fadeOut 0.5s ease-out',
+            'slide-up': 'slideUp 0.5s ease-out',
+            'slide-down': 'slideDown 0.5s ease-out',
+            'slide-left': 'slideLeft 0.5s ease-out',
+            'slide-right': 'slideRight 0.5s ease-out',
+            'scale-in': 'scaleIn 0.5s ease-out',
+            'scale-out': 'scaleOut 0.5s ease-out',
+            'spin-slow': 'spin 3s linear infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-slow': 'bounce 3s infinite',
+            'float': 'float 3s ease-in-out infinite',
+            'scroll': 'scroll 10s linear infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            fadeOut: {
+              '0%': { opacity: '1' },
+              '100%': { opacity: '0' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            slideDown: {
+              '0%': { transform: 'translateY(-20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            slideLeft: {
+              '0%': { transform: 'translateX(20px)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            slideRight: {
+              '0%': { transform: 'translateX(-20px)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            scaleIn: {
+              '0%': { transform: 'scale(0.9)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+            scaleOut: {
+              '0%': { transform: 'scale(1.1)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            scroll: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-85%)' },
+            },
+          },
+          aspectRatio: {
+            'portrait': '3/4',
+            'landscape': '4/3',
+            'ultrawide': '21/9',
+          },
+        },
+      },
+      variants: {
+        extend: {
+          opacity: ['disabled'],
+          cursor: ['disabled'],
+          backgroundColor: ['active', 'disabled'],
+          textColor: ['active', 'disabled'],
+        },
+      },
+    }
+  </script>
+
+  <!-- Utilities and Components -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+
+  <!-- Optimized Font Loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Base Styles -->
+  <style>
+    * {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    /* Webkit browsers like Chrome, Safari, newer Edge */
+    *::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #666;
+    }
+
+    /* Remove tap highlight on mobile */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Improve text rendering */
+    body {
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Focus outline styles */
+    :focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+
+    /* Print styles */
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+
+      a[href]:after {
+        content: " (" attr(href) ")";
+      }
+    }
+  </style>
+
+  <!-- Enhanced Image Handler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+              const tempImage = new Image();
+              tempImage.onload = () => {
+                img.src = img.dataset.src;
+                img.classList.remove('opacity-0');
+                img.classList.add('opacity-100');
+              };
+              tempImage.src = img.dataset.src;
+              img.removeAttribute('data-src');
+              observer.unobserve(img);
+            }
+          }
+        });
+      }, {
+        rootMargin: '50px 0px',
+        threshold: 0.01
+      });
+
+      const loadImage = (img) => {
+        if ('loading' in HTMLImageElement.prototype) {
+          img.loading = 'lazy';
+        }
+
+        img.classList.add('transition-opacity', 'duration-300', 'opacity-0');
+
+        img.onerror = () => {
+          const width = img.getAttribute('width') || img.clientWidth || 300;
+          const height = img.getAttribute('height') || img.clientHeight || 200;
+          img.src = `https://placehold.co/${width}x${height}/DEDEDE/555555?text=Image+Unavailable`;
+          img.alt = 'Image unavailable';
+          img.classList.remove('opacity-0');
+          img.classList.add('opacity-100', 'error-image');
+        };
+
+        if (img.dataset.src) {
+          imageObserver.observe(img);
+        } else {
+          img.classList.remove('opacity-0');
+          img.classList.add('opacity-100');
+        }
+      };
+
+      document.querySelectorAll('img[data-src], img:not([data-src])').forEach(loadImage);
+
+      // Watch for dynamically added images
+      new MutationObserver((mutations) => {
+        mutations.forEach(mutation => {
+          mutation.addedNodes.forEach(node => {
+            if (node.nodeType === 1) {
+              if (node.tagName === 'IMG') {
+                loadImage(node);
+              }
+              node.querySelectorAll('img').forEach(loadImage);
+            }
+          });
+        });
+      }).observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    });
+
+    // Performance monitoring
+    if ('performance' in window && 'PerformanceObserver' in window) {
+      // Create performance observer
+      const observer = new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        entries.forEach((entry) => {
+          if (entry.entryType === 'largest-contentful-paint') {
+            // console.log(`LCP: ${entry.startTime}ms`);
+          }
+          if (entry.entryType === 'first-input') {
+            // console.log(`FID: ${entry.processingStart - entry.startTime}ms`);
+          }
+          if (entry.entryType === 'layout-shift') {
+            // console.log(`CLS: ${entry.value}`);
+          }
+        });
+      });
+
+      // Observe performance metrics
+      observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+
+      // Log basic performance metrics
+      window.addEventListener('load', () => {
+        const timing = performance.getEntriesByType('navigation')[0];
+        console.log({
+          'DNS Lookup': timing.domainLookupEnd - timing.domainLookupStart,
+          'TCP Connection': timing.connectEnd - timing.connectStart,
+          'DOM Content Loaded': timing.domContentLoadedEventEnd - timing.navigationStart,
+          'Page Load': timing.loadEventEnd - timing.navigationStart
+        });
+      });
+    }
+
+    // Handle offline/online status
+    window.addEventListener('online', () => {
+      document.body.classList.remove('offline');
+      console.log('Connection restored');
+    });
+
+    window.addEventListener('offline', () => {
+      document.body.classList.add('offline');
+      console.log('Connection lost');
+    });
+  </script>
+</head>
+
+<body class="antialiased text-gray-800 min-h-screen flex flex-col">
+  <element id="2d19b37d-0431-4f0b-b4a4-41db8e5098e2" data-section-id="2d19b37d-0431-4f0b-b4a4-41db8e5098e2">
+
+
+    <div id="root">
+    </div>
+  </element>
+  <element id="67e4294c-f65c-4c44-9865-07d19e6cc2b9" data-section-id="67e4294c-f65c-4c44-9865-07d19e6cc2b9">
+    </style>
+
+    <section id="hero"
+      class="relative pt-20 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 min-h-[90vh] overflow-hidden flex justify-center items-center">
+      <nav id="navbar"
+        class="fixed top-0 left-0 right-0 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+              <a href="#"
+                class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent flex flex-row items-center ">
+                <img src="../assets/favicon.png" class="h-16" />
+                KraftX
+              </a>
+            </div>
+
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-center space-x-8">
+                <a href="#demo"
+                  class="text-slate-200 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Demo</a>
+                <a href="#problem"
+                  class="text-slate-200 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Problem</a>
+                <a href="#solution"
+                  class="text-slate-200 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Solution</a>
+                <a href="#benefits"
+                  class="text-slate-200 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Benefits</a>
+                <a href="#expertise"
+                  class="text-slate-200 hover:text-blue-600 font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Expertise</a>
+                <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
+                  class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-2.5 rounded-full hover:from-blue-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-blue-500/20">
+                  Get Started
+                </button>
+              </div>
+            </div>
+
+            <!-- Mobile Navigation Button -->
+            <div class="md:hidden">
+              <button id="mobile-menu-button"
+                class="text-slate-200 hover:text-blue-600 focus:outline-none transition-all duration-300">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                  </path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+     <div id="mobile-menu" class="hidden md:hidden bg-slate-950/90 backdrop-blur-md border-b border-slate-800 z-50">
+        <div class="px-4 pt-3 pb-4 space-y-2 bg-slate-950/90 backdrop-blur-md">
+          <a href="#demo"
+            class="block px-4 py-3 text-slate-200 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Demo</a>
+          <a href="#problem"
+            class="block px-4 py-3 text-slate-200 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Problem</a>
+          <a href="#solution"
+            class="block px-4 py-3 text-slate-200 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Solution</a>
+          <a href="#benefits"
+            class="block px-4 py-3 text-slate-200 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Benefits</a>
+          <a href="#expertise"
+            class="block px-4 py-3 text-slate-200 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">Expertise</a>
+          <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
+            class="bg-gradient-to-r  from-blue-500 to-blue-600 text-white px-6 py-2.5 rounded-full hover:from-blue-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-blue-500/20">
+            Get Started
+          </button>
+        </div>
+      </div>
+      </nav>
+
+      <script>
+        // Mobile menu toggle with smooth animation
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', (e) => {
+          e.stopPropagation();
+          mobileMenu.classList.toggle('hidden');
+          // Add slide animation
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.style.animation = 'slideDown 0.3s ease-out forwards';
+          } else {
+            mobileMenu.style.animation = 'slideUp 0.3s ease-out forwards';
+          }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+          if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
+
+        // Handle window resize
+        const handleResize = () => {
+          if (window.innerWidth >= 768) {
+            mobileMenu.classList.add('hidden');
+          }
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        // Smooth scroll for navigation links with easing
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          });
+        });
+
+        // Add scroll-triggered navbar background opacity
+        window.addEventListener('scroll', () => {
+          const navbar = document.getElementById('navbar');
+          if (window.scrollY > 0) {
+            navbar.classList.add('bg-slate-950/95');
+            navbar.classList.remove('bg-slate-950/90');
+          } else {
+            navbar.classList.add('bg-slate-950/90');
+            navbar.classList.remove('bg-slate-950/95');
+          }
+        });
+      </script>
+
+      <style>
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideUp {
+          from {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          to {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+        }
+      </style>
+
+      <div class="max-w-7xl mx-auto px-4 xs:px-6 sm:px-6 lg:px-8 py-32 xs:py-16 lg:py-32 ">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div class="space-y-10 [&amp;>*]:animate-fadeInUp [&amp;>*]:animate-fill-forwards"
+            style="--stagger-delay: 100ms;">
+            <h1
+              class="xs:text-3xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-white leading-tight tracking-tight [text-wrap:balance] hyphens-none whitespace-normal break-words"
+              style="animation-delay: calc(1 * var(--stagger-delay));">
+              Supercharge Your AR&nbsp;Calling with Human&#8209;Grade AI&nbsp;Agents
+            </h1>
+            <p class="text-xl text-slate-300 leading-relaxed max-w-2xl"
+              style="animation-delay: calc(2 * var(--stagger-delay));">
+              Experience a revolutionary way to handle AR calls—our AI agent slashes your AR efforts by 40–50% while
+              delivering human-grade results.
+            </p>
+
+            <div class="flex flex-col gap-6 mt-8" style="animation-delay: calc(3 * var(--stagger-delay));">
+              <h3
+                class="text-2xl font-semibold text-white bg-gradient-to-r from-blue-200 to-blue-400 bg-clip-text text-transparent">
+                Ready to see it in action?
+              </h3>
+              <div class="flex flex-col sm:flex-row gap-6">
+                <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
+                  class="group w-fit inline-flex xs:self-center items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/20 animate__animated animate__pulse animate__infinite">
+                  Schedule a Live Demo
+                  <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6">
+                    </path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative animate-fadeInUp animate-fill-forwards"
+            style="animation-delay: calc(4 * var(--stagger-delay));">
+            <div class="absolute -inset-4 bg-blue-500/20 rounded-[2rem] blur-3xl animate-pulse-slow"></div>
+            <div class="relative animate__animated animate__fadeInRight">
+              <div class="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full"></div>
+              <div class="relative bg-neutral-800/50 p-8 rounded-2xl border border-gray-700 backdrop-blur-sm">
+                <div class="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1  gap-4">
+                  <div class="p-4 bg-neutral-700/50 rounded-lg">
+                    <div class="text-3xl font-bold text-green-400 mb-2">40-50%</div>
+                    <div class="text-gray-300">Reduction in AR Calling Costs</div>
+                  </div>
+                  <div class="p-4 bg-neutral-700/50 rounded-lg">
+                    <div class="text-3xl font-bold text-purple-400 mb-2">10-20%</div>
+                    <div class="text-gray-300">Increase in Collected Revenue </div>
+                  </div>
+                </div>
+              </div>
+            </div </div>
+          </div>
+
+          <!-- Abstract Shapes -->
+          <div class="absolute top-0 right-0 -z-10 opacity-10 animate-float">
+            <svg width="600" height="600" viewBox="0 0 200 200" class="text-slate-400">
+              <path fill="currentColor"
+                d="M45,-55.7C58.9,-44.3,71.2,-30.1,76.1,-13.2C81,3.7,78.5,23.4,68.6,38.1C58.7,52.8,41.3,62.6,22.7,68.5C4.1,74.4,-15.8,76.5,-33.9,70.4C-52,64.3,-68.3,50,-76.1,31.8C-83.9,13.6,-83.2,-8.5,-74.9,-26.7C-66.6,-44.9,-50.7,-59.2,-34.3,-69.4C-17.8,-79.7,-0.8,-85.8,14,-81.5C28.8,-77.1,31.1,-67.1,45,-55.7Z"
+                transform="translate(100 100)"></path>
+            </svg>
+          </div>
+
+          <div class="absolute bottom-0 left-0 -z-10 opacity-10 animate-float" style="animation-delay: 1s;">
+            <svg width="500" height="500" viewBox="0 0 200 200" class="text-slate-400">
+              <path fill="currentColor"
+                d="M42.8,-65.5C54.9,-56.2,63.5,-43,69.4,-28.2C75.3,-13.4,78.6,3,74.9,17.3C71.2,31.7,60.5,44,47.6,53.5C34.7,62.9,19.6,69.5,3.4,70.8C-12.8,72.2,-30.1,68.3,-45.1,59.7C-60.1,51.1,-72.8,37.8,-77.4,21.9C-81.9,6,-78.3,-12.5,-70.6,-28.2C-62.9,-43.9,-51.1,-56.8,-37.4,-65.3C-23.7,-73.8,-8.1,-77.9,4.1,-74.6C16.3,-71.3,30.7,-74.8,42.8,-65.5Z"
+                transform="translate(100 100)"></path>
+            </svg>
+          </div>
+
+          <style>
+            @keyframes fadeInUp {
+              from {
+                opacity: 0;
+                transform: translateY(20px);
+              }
+
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
+            @keyframes float {
+
+              0%,
+              100% {
+                transform: translateY(0);
+              }
+
+              50% {
+                transform: translateY(-20px);
+              }
+            }
+
+            .animate-fadeInUp {
+              animation: fadeInUp 0.6s ease-out;
+            }
+
+            .animate-float {
+              animation: float 6s ease-in-out infinite;
+            }
+
+            .animate-fill-forwards {
+              animation-fill-mode: forwards;
+            }
+          </style>
+        </div>
+    </section>
+  </element>
+  <element id="bce2adf5-599f-422c-a034-1677e8a58bbf" data-section-id="bce2adf5-599f-422c-a034-1677e8a58bbf">
+    <section id="demo" class="py-32 xs:py-16 lg:py-32   bg-gradient-to-tr from-slate-900 via-slate-800 to-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate__animated animate__fadeIn">
+          <h2 class="text-4xl font-bold text-white mb-6">Experience the KraftX AI Agents in Action</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div
+            class="bg-slate-800/50 rounded-xl p-4 hover:scale-105 transition-transform duration-300 animate__animated animate__fadeInLeft">
+            <div class="aspect-video bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+              <iframe width="100%" height="100%"
+                src="https://www.youtube.com/embed/yjkxdJPaQ4U?modestbranding=1&autohide=1&showinfo=0&controls=1&rel=0"
+                title="Authorization Invalid (CO-197)" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe>
+            </div>
+            <h3 class="text-xl font-semibold text-white text-center">Authorization Invalid (CO-197)</h3>
+          </div>
+
+          <div
+            class="bg-slate-800/50 rounded-xl p-4 hover:scale-105 transition-transform duration-300 animate__animated animate__fadeInRight">
+            <div class="aspect-video bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+              <iframe width="100%" height="100%"
+                src="https://www.youtube.com/embed/u5guzGNFPJA?modestbranding=1&autohide=1&showinfo=0&controls=1&rel=0"
+                title="Authorization Invalid (CO-197)" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe>
+            </div>
+            <h3 class="text-xl font-semibold text-white text-center">Coding Mismatch (CO-11)</h3>
+
+            <!-- <p class="text-gray-300">Smart handling of referral and authorization processes</p> -->
+          </div>
+        </div>
+
+        <div class="text-center max-w-4xl mx-auto animate__animated animate__fadeInUp">
+          <p class="text-gray-300 text-lg">
+            Our AI agents can handle a wide range of 50+ pre-built AR scenarios including Medical Necessity, Referral
+            Requirements, Bundled Services etc. You can customize and build your own scenarios
+          </p>
+          <div class="text-center mt-8">
+          <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
+            class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-5 rounded-full text-lg font-semibold transition-all duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/20 animate__animated animate__pulse animate__infinite">
+            Experience The Magic
+          </button>
+        </div>
+      </div>
+      </div>
+    </section>
+
+  </element>
+  <element id="d68b10a4-2045-41d7-9165-5248ea542dae" data-section-id="d68b10a4-2045-41d7-9165-5248ea542dae">
+
+
+    <section id="problem"
+      class="py-32 xs:py-16 lg:py-32 bg-gradient-to-br from-slate-900 to-slate-800 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative" id="el-t86fob5f">
+        <!-- Header -->
+        <div class="text-center mb-24 animate__animated animate__fadeIn" id="el-cf06exai">
+          <h2
+            class="xs:text-3xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-white mb-8 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400"
+            id="el-2amow0cl">The Challenge: What's Holding Your AR Process Back?</h2>
+          <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed" id="el-qluxx6vs">
+            Healthcare RCM teams are struggling with increased AR calling costs and quality challenges
+          </p>
+        </div>
+
+        <!-- Solution Cards -->
+        <div class="grid xs:grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8 mb-24" id="el-t216ozmp">
+          <!-- Card 1 -->
+          <div
+            class="group bg-slate-800/50 backdrop-blur-xl p-8 rounded-3xl hover:scale-105 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-blue-500/50"
+            id="el-c929xyjl">
+            <div
+              class="h-16 w-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform duration-300"
+              id="el-i4bqccmd">
+              <img class="w-8 h-8 text-white" src="../assets/ar_caller/clock_top_right.svg"
+                alt="Descriptive Text" />
+
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white" id="el-feg8sztb">Long IVRs & Hold Times</h3>
+            <p class="text-slate-300 mb-6 leading-relaxed" id="el-vzzzx727">Reduces productivity of skilled AR callers</p>
+            <!-- <div class="text-blue-400 font-semibold flex items-center group-hover:text-blue-300 transition-colors"
+            id="el-lj0p339m">
+            Learn More
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24" id="el-v4ubp52c">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" id="el-czghwz02">
+              </path>
+            </svg>
+          </div> -->
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="group bg-slate-800/50 backdrop-blur-xl p-8 rounded-3xl hover:scale-105 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-violet-500/50"
+            style="animation-delay: 0.2s" id="el-vsshngbu">
+            <div
+              class="h-16 w-16 bg-gradient-to-br from-violet-500 to-violet-600 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform duration-300"
+              id="el-yyuj5dm3">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-gcfzfjm3">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  id="el-57x40q2p"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white" id="el-3w1ik813">High Turnover</h3>
+            <p class="text-slate-300 mb-6 leading-relaxed" id="el-cyeqn2o7">~40-50% attrition rate leading to  increased hiring costs </p>
+            <!-- <div class="text-violet-400 font-semibold flex items-center group-hover:text-violet-300 transition-colors"
+            id="el-k4tv9e3f">
+            Learn More
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24" id="el-e0lb4458">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" id="el-0zy7j7ib">
+              </path>
+            </svg>
+          </div> -->
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="group bg-slate-800/50 backdrop-blur-xl p-8 rounded-3xl hover:scale-105 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-purple-500/50"
+            style="animation-delay: 0.4s" id="el-2i5bgof1">
+            <div
+              class="h-16 w-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform duration-300"
+              id="el-jsf1hcnr">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-fy14c93o">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                  id="el-37mef0ss"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white" id="el-njvl47rr">Longer Ramp Up</h3>
+            <p class="text-slate-300 mb-6 leading-relaxed" id="el-e3p8vzij">Minimum 90 days of ramp-up time resulting in very high training costs<p>
+
+            <!-- <div class="text-purple-400 font-semibold flex items-center group-hover:text-purple-300 transition-colors"
+            id="el-gu9f4q4n">
+            Learn More
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24" id="el-y9k4pbut">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" id="el-7zwslf67">
+              </path>
+            </svg>
+          </div> -->
+          </div>
+          <div
+            class="group bg-slate-800/50 backdrop-blur-xl p-8 rounded-3xl hover:scale-105 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-blue-500/50"
+            style="animation-delay: 0.4s" id="el-2i5bgof1">
+            <div
+              class="h-16 w-16 bg-gradient-to-br from-[#2F71F0] to-[#2F71F0] rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform duration-300">
+              <img class="w-8 h-8 text-white" src="../assets/magnifying_glass_with_document.svg"
+                alt="Descriptive Text" />
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white">Higher Denial Rates</h3>
+            <p class="text-slate-300 mb-6 leading-relaxed">Inexperienced teams struggle with payer-specific rules and frequent policy changes </p>
+            <!-- <div class="text-[#2F71F0] font-semibold flex items-center group-hover:text-[#2F71F0] transition-colors">
+            Learn More
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div> -->
+          </div>
+          <div
+            class="group bg-slate-800/50 backdrop-blur-xl p-8 rounded-3xl hover:scale-105 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-violet-500/50"
+            style="animation-delay: 0.4s" id="el-2i5bgof1">
+            <div
+              class="h-16 w-16 bg-gradient-to-br from-[#844BF2] to-[#844BF2] rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform duration-300">
+              <img class="w-8 h-8 text-white" src="../assets/denied_document.svg" alt="Descriptive Text" />
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white">High Rate of Rework</h3>
+            <p class="text-slate-300 mb-6 leading-relaxed">Reps often miss key details from payer calls, causing rework</p>
+            <!-- <div class="text-[#844BF2] font-semibold flex items-center group-hover:text-[#844BF2] transition-colors">
+            Learn More
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div> -->
+          </div>
+          <div
+            class="group bg-slate-800/50 backdrop-blur-xl p-8 rounded-3xl hover:scale-105 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-purple-500/50"
+            style="animation-delay: 0.4s" id="el-2i5bgof1">
+            <div
+              class="h-16 w-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform duration-300"
+              id="el-jsf1hcnr">
+              <img class="w-8 h-8 text-white" src="../assets/payment-card.svg" alt="Descriptive Text" />
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white" id="el-njvl47rr">Lost Revenue</h3>
+            <p class="text-slate-300 mb-6 leading-relaxed" id="el-e3p8vzij">Resource constraints force claim prioritization, missing low-value and low-probability payouts</p>
+            <!-- <div class="text-purple-400 font-semibold flex items-center group-hover:text-purple-300 transition-colors"
+            id="el-gu9f4q4n">
+            Learn More
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24" id="el-y9k4pbut">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" id="el-7zwslf67">
+              </path>
+            </svg>
+          </div> -->
+          </div>
+        </div>
+
+
+        <!-- CTA -->
+        <div class="text-center" id="el-444pzynq">
+          <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
+            class="relative group px-12 py-6 rounded-full text-xl text-white font-bold  bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/20 animate__animated animate__pulse animate__infinite"
+            id="el-paxsqvz9">
+            See Live Demo
+          </button>
+        </div>
+      </div>
+    </section>
+  </element>
+  <section id="solution" class="py-32 xs:py-16 lg:py-32   bg-gradient-to-br from-slate-900 to-slate-800 h-full">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-white mb-6" data-tah="staggered_fade_in">
+        Meet Your Purpose-Built KraftX AR Agent
+      </h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-tah="staggered_fade_in" style="animation-delay: 0.2s">
+        Our AI agent handles up to 60% of AR payer calls, freeing your team for more complex tasks.
+      </p>
+    </div>
+
+    <div class="mb-20">
+      <h3 class="text-2xl font-bold text-white mb-8 text-center">How it works</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#2F71F0]" data-tah="slide.slide-up">
+          <div class="h-12 w-12 bg-[#2F71F0]/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#2F71F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold mb-2 text-white">Navigate IVR Menus</h4>
+          <p class="text-gray-300">Automatically routes through payer-specific call trees.</p>
+        </div>
+
+        <div class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#844BF2]" data-tah="slide.slide-up" style="animation-delay: 0.2s">
+          <div class="h-12 w-12 bg-[#844BF2]/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#844BF2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold mb-2 text-white">Patiently Waits on Hold</h4>
+          <p class="text-gray-300">Frees human agents to handle more complex tasks.</p>
+        </div>
+
+        <div class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#2F71F0]" data-tah="slide.slide-up" style="animation-delay: 0.4s">
+          <div class="h-12 w-12 bg-[#2F71F0]/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#2F71F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold mb-2 text-white">Resolves Issues With Live Agents</h4>
+          <p class="text-gray-300">Engages in real-time conversations, capturing every crucial detail.</p>
+        </div>
+
+        <div class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#844BF2]" data-tah="slide.slide-up" style="animation-delay: 0.6s">
+          <div class="h-12 w-12 bg-[#844BF2]/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#844BF2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold mb-2 text-white">Real-Time EHR Updates</h4>
+          <p class="text-gray-300">No manual data entry or missed action items.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-slate-800/50 rounded-2xl p-8 lg:p-12 border border-[#2F71F0]">
+      <h3 class="text-2xl font-bold text-white mb-8 text-center">Key Features</h3>
+      <div class="flex flex-wrap justify-center gap-8">
+        <div data-tah="fade.fade-in" class="flex-1 min-w-[280px] max-w-[400px] bg-slate-800/30 p-6 rounded-xl hover:bg-slate-800/40 transition-all duration-300 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30">
+          <h4 class="text-lg font-semibold mb-3 text-white">Pre-Built Scenarios</h4>
+          <p class="text-gray-300 leading-relaxed">Tailored call flows for common AR challenges right out of the box.</p>
+        </div>
+
+        <div data-tah="fade.fade-in" class="flex-1 min-w-[280px] max-w-[400px] bg-slate-800/30 p-6 rounded-xl hover:bg-slate-800/40 transition-all duration-300 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30" style="animation-delay: 0.2s">
+          <h4 class="text-lg font-semibold mb-3 text-white">Easy Scenario Builder</h4>
+          <p class="text-gray-300 leading-relaxed">Customize call flows for complex or unique payer requirements.</p>
+        </div>
+
+        <div data-tah="fade.fade-in" class="flex-1 min-w-[280px] max-w-[400px] bg-slate-800/30 p-6 rounded-xl hover:bg-slate-800/40 transition-all duration-300 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30" style="animation-delay: 0.4s">
+          <h4 class="text-lg font-semibold mb-3 text-white">Continuous Learning</h4>
+          <p class="text-gray-300 leading-relaxed">Gains intelligence from every call, improving performance over time.</p>
+        </div>
+
+        <div data-tah="fade.fade-in" class="flex-1 min-w-[280px] max-w-[400px] bg-slate-800/30 p-6 rounded-xl hover:bg-slate-800/40 transition-all duration-300 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30" style="animation-delay: 0.6s">
+          <h4 class="text-lg font-semibold mb-3 text-white">Scheduled &amp; Parallel Calls</h4>
+          <p class="text-gray-300 leading-relaxed">Place 100s of calls simultaneously during optimal payer availability.</p>
+        </div>
+
+        <div data-tah="fade.fade-in" class="flex-1 min-w-[280px] max-w-[400px] bg-slate-800/30 p-6 rounded-xl hover:bg-slate-800/40 transition-all duration-300 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30" style="animation-delay: 0.8s">
+          <h4 class="text-lg font-semibold mb-3 text-white">Strategic Handoffs</h4>
+          <p class="text-gray-300 leading-relaxed">Automatically escalates complex cases to human agents.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
+          class="relative group px-12 py-6 rounded-full text-xl text-white font-bold  bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/20 animate__animated animate__pulse animate__infinite"
+          id="el-paxsqvz9">
+          Get in Touch
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <element id="4b2bb0a3-d2ad-4565-a969-c31ac479c04d" data-section-id="4b2bb0a3-d2ad-4565-a969-c31ac479c04d">
+
+    <section id="benefits" class="py-32 xs:py-16 lg:py-32  bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-24 animate__animated animate__fadeIn">
+          <h2
+            class="xs:text-3xl sm:text-3xl md:text-4xl xl:text-5xl font-bold mb-8 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
+            Built for RCM teams by Industry Experts</h2>
+          <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            We understand the unique challenges of RCM teams. Our AI solutions integrate seamlessly with your existing
+            workflows, empowering you to deliver unparalleled value to your customers
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+          <!-- Card 1 -->
+          <div
+            class="group bg-slate-800/50 backdrop-blur-lg rounded-3xl p-8 hover:bg-slate-700/50 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-blue-500/50">
+            <div
+              class="h-20 w-20 bg-gradient-to-r from-indigo-500/20 to-blue-500/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-10 h-10 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Cutting-edge AI</h3>
+            <p class="text-slate-300 leading-relaxed">Purpose-built for healthcare RCM workflows</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="group bg-slate-800/50 backdrop-blur-lg rounded-3xl p-8 hover:bg-slate-700/50 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-blue-500/50"
+            style="animation-delay: 0.2s">
+            <div
+              class="h-20 w-20 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-10 h-10 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Seamless Integration</h3>
+            <p class="text-slate-300 leading-relaxed">Works with your existing tools and processes</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="group bg-slate-800/50 backdrop-blur-lg rounded-3xl p-8 hover:bg-slate-700/50 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-blue-500/50"
+            style="animation-delay: 0.4s">
+            <div
+              class="h-20 w-20 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Secure and Compliant</h3>
+            <p class="text-slate-300 leading-relaxed">Fully compliant and built with the highest security standards</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="group bg-slate-800/50 backdrop-blur-lg rounded-3xl p-8 hover:bg-slate-700/50 transition-all duration-500 animate__animated animate__fadeInUp border border-slate-700/50 hover:border-blue-500/50"
+            style="animation-delay: 0.6s">
+            <div
+              class="h-20 w-20 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-10 h-10 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Dedicated Support</h3>
+            <p class="text-slate-300 leading-relaxed">A team of human experts to ensure your success</p>
+          </div>
+        </div>
+
+
+        <div class="text-center">
+          <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
+            class="group relative text-white px-12 py-6 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full text-xl font-semibold transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/20 animate__animated animate__pulse animate__infinite">
+            Learn More
+          </button>
+        </div>
+      </div>
+    </section>
+  </element>
+  <element id="beeaf426-217a-4740-b95d-37bf00998e0f" data-section-id="beeaf426-217a-4740-b95d-37bf00998e0f">
+
+
+    <section id="expertise"
+      class="py-32 xs:py-16 lg:py-32  bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50 via-slate-50 to-purple-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="el-vyl4zzj6">
+        <!-- Header Section -->
+        <div class="text-center mb-10 [view-transition-name:header] motion-safe:animate-fade-in" id="el-bxrc7wuk">
+          <h2
+            class="xs:text-3xl sm:text-3xl md:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-gray-900 via-indigo-800 to-purple-900 bg-clip-text text-transparent pb-8 leading-tight"
+            id="el-ooyzgcpt">Powered by Engineers from Top Tech Companies</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed backdrop-blur-sm" id="el-x5rpkvwf">
+            At KraftX, our team is composed of engineers from the world's leading tech companies and top educational
+            institutions. These experts drive the innovative capabilities of our agents, ensuring we deliver
+            cutting-edge
+            AI solutions.
+          </p>
+        </div>
+
+        <!-- Company Logos -->
+        <div class="relative overflow-hidden">
+          <div class="scroll imgBox mb-10" style="--time:25s">
+            <div>
+              <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="">
+              <img src="../assets/cisco.png" alt="">
+              <img src="../assets/flipkart.svg" alt="">
+              <img src="../assets/nest.png" alt="">
+              <img src="../assets/netapp.png" alt="">
+              <img class="h-12" src="../assets/ey.png" alt="">
+              <img src="../assets/kearney.svg" alt="">
+            </div>
+            <div>
+              <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="">
+              <img src="../assets/cisco.png" alt="">
+              <img src="../assets/flipkart.svg" alt="">
+              <img src="../assets/nest.png" alt="">
+              <img src="../assets/netapp.png" alt="">
+              <img class="h-12" src="../assets/ey.png" alt="">
+              <img src="../assets/kearney.svg" alt="">
+            </div>
+          </div>
+
+          <style>
+            .scroll {
+              position: relative;
+              display: flex;
+              width: 80%;
+              overflow: hidden;
+              justify-self: center;
+              -webkit-mask-image: linear-gradient(90deg, transparent, #fff 5%, #fff 95%, transparent)
+            }
+
+            .scroll div {
+              white-space: nowrap;
+              animation: scroll var(--time) linear infinite;
+              animation-delay: calc(var(--time)*-1);
+
+            }
+
+            .scroll div:nth-child(2) {
+              animation: scroll2 var(--time) linear infinite;
+              animation-delay: calc(var(--time)/-2);
+            }
+
+            @keyframes scroll {
+              0% {
+                transform: translateX(100%);
+              }
+
+              100% {
+                transform: translateX(-100%);
+              }
+            }
+
+            @keyframes scroll2 {
+              0% {
+                transform: translateX(0);
+              }
+
+              100% {
+                transform: translateX(-200%);
+              }
+            }
+
+            .scroll div span {
+              display: inline-flex;
+              margin: 40px;
+              color: #fff;
+              transition: 0.5s;
+            }
+
+
+            .imgBox div {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            .imgBox img {
+              /* width: auto;
+    height: 64px; */
+              max-width: 100px;
+              scale: 0.8;
+              margin-inline: 20px;
+            }
+          </style>
+        </div>
+
+
+        <!-- CTA Section -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-8">
+          <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
+            class="group sm:w-auto bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white px-12 py-5 rounded-full text-lg font-semibold transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-red-500/20 animate__animated animate__pulse animate__infinite">
+            Talk to Us
+          </button>
+
+
+
+          <!-- <button
+          class="w-full sm:w-auto backdrop-blur-xl bg-white/10 border border-white/20 text-white px-12 py-5 rounded-2xl text-lg font-semibold hover:bg-white/20 transition-all duration-300">
+          Contact Us
+        </button> -->
+        </div>
+      </div>
+    </section>
+  </element>
+
+
+  <section id="cta"
+    class="py-32 xs:py-16 lg:py-32  bg-gradient-to-tr from-slate-900 via-indigo-950 to-blue-900 relative overflow-hidden">
+    <!-- Modern geometric background elements -->
+    <div class="absolute top-0 left-0 w-full h-full">
+      <div
+        class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-blue-400/10 rounded-full filter blur-[100px] transform translate-x-1/2 -translate-y-1/2">
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-indigo-400/10 rounded-full filter blur-[100px] transform -translate-x-1/2 translate-y-1/2">
+      </div>
+    </div>
+
+    <div class="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+      <div class="text-center animate__animated animate__fadeIn">
+        <h2
+          class="xs:text-3xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-white mb-8 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-100 to-indigo-100">
+          Ready to Transform Your RCM Operations?
+        </h2>
+        <p class="text-xl md:text-2xl text-blue-100/80 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
+          Let's redefine what's possible for RCM providers
+        </p>
+        <p class="text-xl md:text-2xl text-blue-100/80 mb-16 max-w-4xl mx-auto leading-relaxed font-medium">
+          Experience the future of healthcare collections with our AR calling agents.
+        </p>
+        <p class="text-xl md:text-2xl text-blue-100/80 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
+          Discover how leading healthcare providers are reducing AR efforts by 40-50% while improving collection rates.
+        </p>
+
+
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-8">
+          <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
+            class="group sm:w-auto bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-12 py-5 rounded-full text-lg font-semibold transition-all duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/20 animate__animated animate__pulse animate__infinite">
+            Schedule a Live Demo
+            <!-- <svg class="inline-block ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
+            stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg> -->
+          </button>
+          <!-- <button
+          class="w-full sm:w-auto backdrop-blur-xl bg-white/10 border border-white/20 text-white px-12 py-5 rounded-2xl text-lg font-semibold hover:bg-white/20 transition-all duration-300">
+          Contact Us
+        </button> -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+  </element>
+  <element id="88d4804b-26cb-4403-857a-de761d8e9450" data-section-id="88d4804b-26cb-4403-857a-de761d8e9450">
+
+    <footer id="footer" class="bg-gradient-to-br from-slate-900 via-gray-900 to-zinc-900 text-gray-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Footer Top -->
+        <div class="flex flex-wrap justify-between items-start space-y-6 sm:space-y-0 space-x-0 sm:space-x-8">
+          <!-- Company Info -->
+          <div class="flex-1 transform transition-all duration-500 hover:translate-y-[-5px]">
+            <div class="grid">
+              <div class="transform transition-all duration-500 hover:translate-y-[-5px]">
+                <div class="flex flex-row items-center">
+                  <img src="../assets/favicon_white.png" class="h-16 -ml-3.5" />
+                  <h3
+                    class="text-3xl font-extrabold text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
+                    KraftX
+                  </h3>
+                </div>
+                <p class="mb-8 text-gray-400 leading-relaxed">Crafting your AI workforce for RCM</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Email -->
+          <div
+            class="bg-gradient-to-r from-gray-800/40 to-gray-800/30 p-6 rounded-xl shadow-lg backdrop-blur-sm border border-gray-700/30 hover:border-gray-600/30 transition-all duration-300 w-full sm:w-auto">
+            <div class="flex flex-col space-y-3">
+              <span class="text-xl font-semibold text-gray-200 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                  </path>
+                </svg>
+                Contact Us
+              </span>
+              <div class="flex items-center space-x-3">
+                <a href="mailto:hello@kraftx.ai" target="_blank"
+                  class="text-lg text-blue-400 hover:text-blue-300 transition-all duration-300 cursor-pointer group relative flex items-center">
+                  hello@kraftx.ai
+                  <span
+                    class="opacity-0 group-hover:opacity-100 absolute -top-10 left-1/2 transform -translate-x-1/2 px-3 py-2 bg-gray-900 text-sm rounded-lg text-white whitespace-nowrap shadow-lg transition-opacity duration-200">
+                    Click to send email
+                  </span>
+                </a>
+                <button onclick="copyToClipboard('hello@kraftx.ai')"
+                  class="p-2.5 hover:bg-gray-700/50 rounded-lg transition-all duration-300 group relative">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-gray-300 group-hover:text-blue-400 transition-colors duration-300" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3">
+                    </path>
+                  </svg>
+                  <span
+                    class="opacity-0 group-hover:opacity-100 absolute -top-10 left-1/2 transform -translate-x-1/2 px-3 py-2 bg-gray-900 text-sm rounded-lg text-white whitespace-nowrap shadow-lg transition-opacity duration-200">
+                    Copy to clipboard
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="pt-8 mt-8 border-t border-gray-800">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-sm text-gray-400">© 2024 KraftX. All rights reserved.</p>
+          </div>
+        </div>
+
+        <script>
+          function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+              showToast('Successfully copied!', 'success');
+            }).catch(() => {
+              showToast('Failed to copy!', 'error');
+            });
+          }
+
+          function showToast(message, type) {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+
+            const container = document.getElementById('toast-container');
+            container.appendChild(toast);
+
+            setTimeout(() => {
+              toast.classList.add('fade-out');
+              toast.addEventListener('transitionend', () => toast.remove());
+            }, 3000);
+          }
+        </script>
+
+        <style>
+          /* Toast styling */
+          .toast {
+            background-color: #22c55e;
+            /* Green for success */
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+            animation: slide-in 0.5s ease;
+            transition: opacity 0.5s ease;
+          }
+
+          .toast.error {
+            background-color: #ef4444;
+            /* Red for error */
+          }
+
+          .toast.fade-out {
+            opacity: 0;
+          }
+
+
+          /* Toast animations */
+          @keyframes slide-in {
+            from {
+              transform: translateX(-100%);
+            }
+
+            to {
+              transform: translateX(0);
+            }
+          }
+        </style>
+      </div>
+
+    </footer>
+    <div id="toast-container"
+      class="fixed bottom-4 left-4 z-50 flex flex-col items-start space-y-2 sm:top-20 sm:bottom-auto sm:left-auto sm:right-4 sm:items-end">
+    </div>
+    </div>
+  </element>
+  <div id="page_complete">
+    <script>
+      console.log('Page complete');
+    </script>
+</body>
+
+</html>
+</body>

@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Data Display</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background-color: #1e40af;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .main-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100vh;
+            width: 100vw;
+            transform: translateY(100%);
+            opacity: 0;
+            transition: all 1s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-section.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .main-section.exit {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        #conversation {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            padding: 3.5rem;
+            padding-top: 9rem;
+            overflow-y: hidden;
+            height: 100vh;
+            position: relative;
+        }
+
+        #messages {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            padding: 3.5rem;
+            padding-top: 9rem;
+            overflow-y: hidden;
+            height: 100vh;
+            position: relative;
+        }
+
+        #conversation::after,
+        #messages::after {
+            display: none;
+        }
+
+        .message,
+        .conversation-message {
+            opacity: 1;
+            position: relative;
+            animation: slideFromMiddle 0.5s ease-out;
+            transform-origin: center;
+            will-change: transform, opacity;
+            margin-top: auto;
+        }
+
+        .message.faded,
+        .conversation-message.faded {
+            opacity: 0;
+            transform: translateY(-20px);
+            height: 0;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.5s ease-out;
+        }
+
+        .message {
+            padding: 2.2rem;
+            margin: 1.4rem 0;
+            font-size: 2rem;
+            color: #1e40af;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border-bottom: 1px solid rgba(30, 64, 175, 0.2);
+            gap: 1rem;
+            transition: transform 0.3s ease-out;
+            font-weight: 700;
+        }
+
+        .message:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .key {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #1e40af;
+            width: 100%;
+            text-align: left;
+            border-bottom: 1px solid rgba(30, 64, 175, 0.1);
+            padding-bottom: 0.8rem;
+        }
+
+        .value {
+            font-size: 2rem;
+            color: #1e40af;
+            text-align: left;
+            font-weight: 700;
+            width: 100%;
+            padding-top: 0.5rem;
+        }
+
+        .conversation-message {
+            padding: 2.2rem;
+            margin: 1.4rem 0;
+            font-size: 2rem;
+            color: #dbeafe;
+            background: rgba(219, 234, 254, 0.1);
+            border-radius: 12px;
+            border-bottom: 1px solid rgba(219, 234, 254, 0.2);
+            transition: transform 0.3s ease-out;
+            border-left: 4px solid transparent;
+            font-weight: 700;
+        }
+
+        .conversation-message:hover {
+            transform: translateX(5px);
+            background: rgba(219, 234, 254, 0.15);
+        }
+
+        .conversation-message.payer-rep {
+            background: rgba(59, 130, 246, 0.1);
+            border-left-color: #3b82f6;
+        }
+
+        .conversation-message.payer-rep .speaker {
+            color: #93c5fd;
+        }
+
+        .conversation-message.kraftx-agent {
+            background: rgba(251, 146, 60, 0.1);
+            border-left-color: #fb923c;
+        }
+
+        .conversation-message.kraftx-agent .speaker {
+            color: #fdba74;
+        }
+
+        .speaker {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #dbeafe;
+            margin-bottom: 1.6rem;
+            letter-spacing: 0.5px;
+        }
+
+        .conversation-text {
+            font-size: 2.2rem;
+            color: #dbeafe;
+            line-height: 1.8;
+            font-weight: 700;
+        }
+
+        #conversation h2,
+        #messages h2 {
+            margin: 0;
+            font-size: 3.2rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            position: fixed;
+            z-index: 5;
+            padding: 2.5rem;
+            width: calc(50% - 5rem);
+            text-align: center;
+            transition: all 0.8s ease-out;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+        }
+
+        #conversation h2 {
+            left: 0;
+            color: #dbeafe;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #messages h2 {
+            left: 50%;
+            color: #1e40af;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Remove the background overrides */
+        #conversation h2,
+        #messages h2 {
+            background: transparent !important;
+        }
+
+        /* Remove the !important declarations */
+        #conversation h2.moved,
+        #messages h2.moved {
+            top: 13rem;
+            transform: translateY(0);
+        }
+
+        .consolidated-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            padding: 4rem;
+            box-sizing: border-box;
+            display: none;
+            z-index: 0;
+            overflow-y: auto;
+            transition: all 1s ease-out;
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        .consolidated-section.visible {
+            transform: translateY(0);
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .consolidated-section.exit {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        .consolidated-view {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(219, 234, 254, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+            border: 1px solid rgba(219, 234, 254, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .consolidated-view.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .consolidated-section h2 {
+            text-align: center;
+            font-size: 3.6rem;
+            font-weight: 900;
+            color: #dbeafe;
+            margin-bottom: 3rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .consolidated-section h2::before,
+        .consolidated-section h2::after {
+            content: '';
+            height: 2px;
+            flex: 1;
+            background: linear-gradient(to right, transparent, rgba(219, 234, 254, 0.3), transparent);
+        }
+
+        .metrics-summary {
+            color: #dbeafe;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .metrics-summary div {
+            padding: 2.5rem;
+            background: rgba(219, 234, 254, 0.08);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(219, 234, 254, 0.15);
+            gap: 1.2rem;
+            order: 999;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Add styles for wide metrics */
+        .metrics-summary div.wide-metric {
+            grid-column: 1 / -1;
+            max-width: none;
+        }
+
+        .metrics-summary div.wide-metric .value {
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: monospace;
+            font-size: 1.8rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            line-height: 1.8;
+        }
+
+        .metrics-summary div.medium-metric {
+            grid-column: span 2;
+        }
+
+        .metrics-summary div::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(219, 234, 254, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .metrics-summary div:hover {
+            background: rgba(219, 234, 254, 0.12);
+            transform: translateY(-5px);
+            border-color: rgba(219, 234, 254, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .metrics-summary div:hover::before {
+            opacity: 1;
+        }
+
+        .metrics-summary strong {
+            color: #93c5fd;
+            font-size: 2rem;
+            font-weight: 800;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(219, 234, 254, 0.15);
+            padding-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .metrics-summary strong::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #60a5fa;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .metrics-summary span {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 2rem;
+            width: 100%;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            padding-top: 0.8rem;
+            line-height: 1.6;
+        }
+
+        /* Add responsive adjustments */
+        @media (max-width: 1200px) {
+            .metrics-summary {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .consolidated-section {
+                padding: 2rem;
+            }
+            
+            .metrics-summary {
+                grid-template-columns: 1fr;
+            }
+            
+            .consolidated-section h2 {
+                font-size: 2.8rem;
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(219, 234, 254, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(219, 234, 254, 0.2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(219, 234, 254, 0.3);
+        }
+
+        @keyframes slideFromMiddle {
+            from {
+                transform: translateY(20vh) scale(0.98);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulsate {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .landing-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #1e40af;
+            z-index: 100;
+            transition: all 1s ease-out;
+            transform: translateY(0);
+            opacity: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .landing-page.exit {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        .landing-content {
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            animation: pulsate 2s ease-in-out infinite;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            color: rgba(255, 255, 255, 0.9);
+            transform-origin: center;
+        }
+
+        .landing-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .scenario-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 1.5rem;
+            background: rgba(239, 68, 68, 0.3);
+            backdrop-filter: blur(8px);
+            border-radius: 9999px;
+            gap: 0.5rem;
+        }
+
+        .scenario-badge svg {
+            width: 1.7rem;
+            height: 1.7rem;
+            color: #fbbf24;
+        }
+
+        .scenario-badge p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        #conversation,
+        #messages {
+            display: flex;
+            flex-direction: column;
+            padding: 3.5rem;
+            padding-top: 9rem;
+            overflow-y: hidden;
+            height: 100vh;
+            position: relative;
+        }
+
+        #conversation h2,
+        #messages h2 {
+            order: 1;
+        }
+
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 10rem);
+            justify-content: flex-end;
+            padding-bottom: 15vh;
+            padding-top: 3.5rem;
+            position: relative;
+            transition: all 0.3s ease-out;
+        }
+
+        .message-container>*:last-child {
+            scroll-margin-top: 30vh;
+        }
+
+        /* Remove the previous gradient overlay */
+        #conversation::before,
+        #messages::before {
+            display: none;
+        }
+
+        /* Update gradient overlay for message containers */
+        .message-container::before {
+            content: '';
+            position: fixed;
+            /* Change to fixed to stay under header */
+            top: 9rem;
+            /* Match header position */
+            left: 0;
+            right: 0;
+            height: 12rem;
+            /* Increase height of gradient */
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        #conversation .message-container::before {
+            width: 50%;
+            /* Cover left half */
+            background: linear-gradient(to bottom,
+                    rgba(30, 64, 175, 1) 0%,
+                    rgba(30, 64, 175, 0.8) 40%,
+                    rgba(30, 64, 175, 0) 100%);
+        }
+
+        #messages .message-container::before {
+            left: 50%;
+            /* Start from middle */
+            width: 50%;
+            /* Cover right half */
+            background: linear-gradient(to bottom,
+                    rgba(219, 234, 254, 1) 0%,
+                    rgba(219, 234, 254, 0.8) 40%,
+                    rgba(219, 234, 254, 0) 100%);
+        }
+
+        /* Remove previous fade effects */
+        .message:nth-child(-n+3),
+        .conversation-message:nth-child(-n+3),
+        .message:nth-last-child(n+6),
+        .conversation-message:nth-last-child(n+6),
+        .message:nth-last-child(5),
+        .conversation-message:nth-last-child(5),
+        .message:nth-last-child(4),
+        .conversation-message:nth-last-child(4) {
+            opacity: 1;
+            height: auto;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            transform: none;
+        }
+
+        /* Add fixed upper limit gradient overlays */
+        #conversation::after,
+        #messages::after {
+            content: '';
+            position: fixed;
+            top: 9rem; /* Align with the header */
+            height: 180px;
+            width: 50%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        #conversation::after {
+            left: 0;
+            background: linear-gradient(to bottom,
+                rgba(30, 64, 175, 1) 0%,
+                rgba(30, 64, 175, 0.95) 20%,
+                rgba(30, 64, 175, 0.8) 40%,
+                rgba(30, 64, 175, 0.6) 60%,
+                rgba(30, 64, 175, 0.2) 80%,
+                rgba(30, 64, 175, 0) 100%
+            );
+        }
+
+        #messages::after {
+            left: 50%;
+            background: linear-gradient(to bottom,
+                rgba(219, 234, 254, 1) 0%,
+                rgba(219, 234, 254, 0.95) 20%,
+                rgba(219, 234, 254, 0.8) 40%,
+                rgba(219, 234, 254, 0.6) 60%,
+                rgba(219, 234, 254, 0.2) 80%,
+                rgba(219, 234, 254, 0) 100%
+            );
+        }
+
+        /* Ensure messages don't get hidden behind the gradient */
+        .message,
+        .conversation-message {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Update the header styles to ensure they stay on top */
+        #conversation h2,
+        #messages h2 {
+            z-index: 20;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js"></script>
+</head>
+
+<body>
+    <div class="landing-page">
+        <div class="landing-content">
+            <div class="logo-container">
+                <svg class="logo-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+            </div>
+            <h1>KraftX: Your AR Agent Caller</h1>
+            <div class="scenario-badge">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <p>Scenario: Claim Denied Due to Incorrect Medical Coding (CO-11)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-section">
+            <div id="conversation">
+                <h2>Conversation</h2>
+            </div>
+            <div id="messages">
+                <h2>KraftX Agent - Structured Notes</h2>
+            </div>
+        </div>
+        <div id="consolidated" class="consolidated-section">
+            <h2>KraftX Agent Generated Report</h2>
+            <div class="consolidated-view">
+                <div class="metrics-summary"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const messagesDiv = document.getElementById('messages');
+        const conversationDiv = document.getElementById('conversation');
+        let currentSpeaker = null;
+        let ws;
+        let reconnectAttempts = 0;
+        const maxReconnectAttempts = 100;
+        const reconnectDelay = 3000;
+        let metricsCollection = {};
+        let headersMovedToTop = false;
+
+        function connect() {
+            ws = new WebSocket('ws://localhost:8765');
+
+            ws.onopen = () => {
+                console.log('Connected to server');
+                reconnectAttempts = 0;
+            };
+
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                console.log(data);
+                const valueObj = JSON.parse(data.value);
+                console.log(valueObj);
+                if ('conversation_transcript' in valueObj) {
+                    const transcript = valueObj.conversation_transcript;
+                    currentSpeaker = transcript.speaker;
+                    addConversation(transcript.speaker, transcript.conversation_text);
+                } else {
+                    // Process all key-value pairs in the object
+                    Object.entries(valueObj).forEach(([key, value]) => {
+                        addMessage(key, value);
+                    });
+                }
+            };
+
+            ws.onclose = () => {
+                console.log(`Disconnected from server - Attempt ${reconnectAttempts + 1}/100`);
+
+                if (reconnectAttempts < maxReconnectAttempts) {
+                    setTimeout(() => {
+                        reconnectAttempts++;
+                        connect();
+                    }, reconnectDelay);
+                } else {
+                    console.log('Failed to reconnect after 100 attempts. Please refresh the page.');
+                }
+            };
+
+            ws.onerror = (error) => {
+                console.error('WebSocket error:', error);
+            };
+        }
+
+        // Initial connection
+        connect();
+
+        function updateMessageVisibility(container) {
+            const messages = Array.from(container.children).filter(message => message.tagName !== 'H2');
+            
+            if (messages.length === 0) return;
+
+            // Get container dimensions
+            const containerRect = container.getBoundingClientRect();
+            const containerTop = containerRect.top;
+            const containerBottom = containerRect.bottom;
+            const containerHeight = containerRect.height;
+
+            // Always keep at least one message visible
+            const mostRecentMessage = messages[messages.length - 1];
+            mostRecentMessage.style.opacity = '1';
+            mostRecentMessage.style.transform = 'none';
+            mostRecentMessage.style.transition = 'all 0.3s ease-out';
+            mostRecentMessage.style.height = 'auto';
+            mostRecentMessage.style.margin = '1.2rem 0';
+            mostRecentMessage.style.padding = '1.8rem';
+
+            // If only one message, we're done
+            if (messages.length === 1) return;
+
+            // Process other messages based on their position
+            messages.slice(0, -1).forEach(message => {
+                const messageRect = message.getBoundingClientRect();
+                
+                // Check if message is outside the visible container
+                if (messageRect.top < containerTop || messageRect.bottom > containerBottom) {
+                    message.style.opacity = '0';
+                    message.style.height = '0';
+                    message.style.margin = '0';
+                    message.style.padding = '0';
+                    message.style.transform = 'translateY(-15px)';
+                    message.style.transition = 'all 0.5s ease-out';
+                } else {
+                    const distanceFromTop = messageRect.top - containerTop;
+                    const normalizedDistance = distanceFromTop / containerHeight;
+
+                    if (normalizedDistance < 0.2) {
+                        message.style.opacity = '0';
+                        message.style.height = '0';
+                        message.style.margin = '0';
+                        message.style.padding = '0';
+                        message.style.transform = 'translateY(-15px)';
+                        message.style.transition = 'all 0.5s ease-out';
+                    } else if (normalizedDistance < 0.3) {
+                        message.style.opacity = '0.3';
+                        message.style.transform = 'translateY(-8px)';
+                        message.style.transition = 'all 0.4s ease-out';
+                    } else if (normalizedDistance < 0.4) {
+                        message.style.opacity = '0.6';
+                        message.style.transform = 'translateY(-4px)';
+                        message.style.transition = 'all 0.3s ease-out';
+                    } else {
+                        message.style.opacity = '1';
+                        message.style.transform = 'none';
+                        message.style.transition = 'all 0.3s ease-out';
+                    }
+                }
+            });
+
+            // Remove completely faded messages after animation
+            setTimeout(() => {
+                messages.forEach(message => {
+                    if (message.style.opacity === '0' && messages.length > 1) {
+                        // Add check to ensure message is still a child of container
+                        if (container.contains(message)) {
+                            container.removeChild(message);
+                        }
+                    }
+                });
+            }, 500);
+        }
+
+        function scrollToMiddle(element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+
+        function moveHeadersToTop() {
+            if (!headersMovedToTop) {
+                const conversationHeader = document.querySelector('#conversation h2');
+                const messagesHeader = document.querySelector('#messages h2');
+                
+                conversationHeader.classList.add('moved');
+                messagesHeader.classList.add('moved');
+                
+                headersMovedToTop = true;
+            }
+        }
+
+        function addMessage(key, value) {
+            if (key === 'exit' && value === 'exit') {
+                showConsolidatedMetrics();
+                return;
+            }
+
+            if (key === 'start' && value === 'start') {
+                const landingPage = document.querySelector('.landing-page');
+                const mainSection = document.querySelector('.main-section');
+                landingPage.classList.add('exit');
+                setTimeout(() => {
+                    mainSection.classList.add('visible');
+                }, 100);
+                setTimeout(() => {
+                    landingPage.style.display = 'none';
+                }, 1000);
+                return;
+            }
+
+            moveHeadersToTop();
+            metricsCollection[key] = value;
+
+            // Ensure container exists
+            if (!messagesDiv.querySelector('.message-container')) {
+                const container = document.createElement('div');
+                container.className = 'message-container';
+                messagesDiv.appendChild(container);
+            }
+
+            const container = messagesDiv.querySelector('.message-container');
+            
+            // Create new message element
+            const newMessage = createMessageElement(key, value);
+            
+            // Find if key already exists
+            const existingMessages = Array.from(container.querySelectorAll('.message'));
+            const existingMessageIndex = existingMessages.findIndex(msg => 
+                msg.querySelector('.key').textContent === key
+            );
+
+            if (existingMessageIndex !== -1) {
+                const existingMessage = existingMessages[existingMessageIndex];
+                const isLastMessage = existingMessageIndex === existingMessages.length - 1;
+
+                if (isLastMessage) {
+                    // Case 1: Update in place with animation
+                    updateExistingMessage(existingMessage, newMessage);
+                } else {
+                    // Case 2: Move to bottom with animation
+                    moveMessageToBottom(existingMessage, newMessage, container);
+                }
+            } else {
+                // New message: Add to bottom with animation
+                addNewMessage(newMessage, container);
+            }
+        }
+
+        function createMessageElement(key, value) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+
+            const keySpan = document.createElement('span');
+            keySpan.className = 'key';
+            if (typeof key === 'string') {
+                if (/<[a-z][\s\S]*>/i.test(key)) {
+                    keySpan.innerHTML = DOMPurify.sanitize(key);
+                } else {
+                    keySpan.textContent = key;
+                }
+            } else {
+                keySpan.textContent = String(key);
+            }
+
+            const valueSpan = document.createElement('span');
+            valueSpan.className = 'value';
+            
+            // Handle value based on type
+            if (typeof value === 'string') {
+                if (/<[a-z][\s\S]*>/i.test(value)) {
+                    valueSpan.innerHTML = DOMPurify.sanitize(value);
+                } else {
+                    valueSpan.textContent = value;
+                }
+            } else if (value === null || value === undefined) {
+                valueSpan.textContent = '';
+            } else if (typeof value === 'object') {
+                valueSpan.textContent = JSON.stringify(value, null, 2);
+            } else {
+                valueSpan.textContent = String(value);
+            }
+
+            messageDiv.appendChild(keySpan);
+            messageDiv.appendChild(valueSpan);
+            return messageDiv;
+        }
+
+        function updateExistingMessage(existingMessage, newMessage) {
+            const oldValue = existingMessage.querySelector('.value');
+            const newValue = newMessage.querySelector('.value').cloneNode(true);
+
+            // Create a wrapper for the animation
+            const wrapper = document.createElement('div');
+            wrapper.style.position = 'relative';
+            wrapper.style.overflow = 'hidden';
+
+            // Create a hidden div to measure the new content height
+            const measureDiv = document.createElement('div');
+            measureDiv.style.position = 'absolute';
+            measureDiv.style.visibility = 'hidden';
+            measureDiv.style.width = oldValue.offsetWidth + 'px';
+            measureDiv.appendChild(newValue.cloneNode(true));
+            document.body.appendChild(measureDiv);
+
+            // Get the new height
+            const newHeight = measureDiv.offsetHeight;
+            document.body.removeChild(measureDiv);
+
+            // Set initial wrapper height to match the larger of old and new content
+            wrapper.style.height = Math.max(oldValue.offsetHeight, newHeight) + 'px';
+            wrapper.style.width = '100%';
+
+            // Position the old and new values absolutely within the wrapper
+            const oldValueClone = oldValue.cloneNode(true);
+            oldValueClone.style.position = 'absolute';
+            oldValueClone.style.width = '100%';
+            oldValueClone.style.top = '0';
+            oldValueClone.style.left = '0';
+
+            newValue.style.position = 'absolute';
+            newValue.style.width = '100%';
+            newValue.style.top = '0';
+            newValue.style.left = '0';
+            newValue.style.opacity = '0';
+            newValue.style.transform = 'scale(1)';
+
+            // Add both values to wrapper
+            wrapper.appendChild(oldValueClone);
+            wrapper.appendChild(newValue);
+
+            // Replace the old value with the wrapper
+            oldValue.parentNode.replaceChild(wrapper, oldValue);
+
+            // First transition: Fade in new content
+            requestAnimationFrame(() => {
+                newValue.style.transition = 'opacity 0.3s ease-out';
+                newValue.style.opacity = '1';
+                oldValueClone.style.transition = 'opacity 0.3s ease-out';
+                oldValueClone.style.opacity = '0';
+
+                // After content is visible, do the color animation
+                setTimeout(() => {
+                    newValue.style.transition = 'color 0.5s ease-out';
+                    newValue.style.color = '#22c55e';
+                    
+                    // Keep green color for longer (1 second)
+                    setTimeout(() => {
+                        newValue.style.transition = 'color 0.8s ease-out';
+                        newValue.style.color = '#1e40af';
+                        
+                        // Clean up after all animations
+                        setTimeout(() => {
+                            const finalValue = newValue.cloneNode(true);
+                            finalValue.style = ''; // Remove all inline styles
+                            wrapper.parentNode.replaceChild(finalValue, wrapper);
+                        }, 800);
+                    }, 1000); // Increased from 100ms to 1000ms
+                }, 300);
+            });
+        }
+
+        function moveMessageToBottom(existingMessage, newMessage, container) {
+            // Animate existing message out
+            existingMessage.style.transition = 'all 0.3s ease-out';
+            existingMessage.style.opacity = '0';
+            existingMessage.style.transform = 'translateX(-100%)';
+
+            setTimeout(() => {
+                // Remove old message
+                container.removeChild(existingMessage);
+
+                // Prepare new message with green value
+                const valueElement = newMessage.querySelector('.value');
+                valueElement.style.color = '#22c55e'; // Start with green color
+                newMessage.style.opacity = '0';
+                newMessage.style.transform = 'translateX(20px)';
+                newMessage.style.transition = 'all 0.3s ease-out';
+                
+                // Add new message
+                container.appendChild(newMessage);
+
+                // Animate new message in
+                requestAnimationFrame(() => {
+                    newMessage.style.opacity = '1';
+                    newMessage.style.transform = 'translateX(0)';
+                    
+                    // Keep green color for longer (1 second) before transitioning back
+                    setTimeout(() => {
+                        valueElement.style.transition = 'color 0.8s ease-out';
+                        valueElement.style.color = '#1e40af'; // Transition back to original color
+                    }, 1000); // Increased from 300ms to 1000ms
+                });
+
+                scrollToMiddle(newMessage);
+                updateMessageVisibility(container);
+            }, 300);
+        }
+
+        function addNewMessage(newMessage, container) {
+            newMessage.style.opacity = '0';
+            newMessage.style.transform = 'translateX(20px)';
+            newMessage.style.transition = 'all 0.3s ease-out';
+            
+            container.appendChild(newMessage);
+
+            requestAnimationFrame(() => {
+                newMessage.style.opacity = '1';
+                newMessage.style.transform = 'translateX(0)';
+            });
+
+            scrollToMiddle(newMessage);
+            updateMessageVisibility(container);
+        }
+
+        function addConversation(speaker, text) {
+            moveHeadersToTop();
+            if (!conversationDiv.querySelector('.message-container')) {
+                const container = document.createElement('div');
+                container.className = 'message-container';
+                conversationDiv.appendChild(container);
+            }
+
+            const conversationMsg = document.createElement('div');
+            conversationMsg.className = 'conversation-message';
+            
+            // Add speaker-specific class
+            if (speaker.includes('Payer Rep')) {
+                conversationMsg.classList.add('payer-rep');
+            } else if (speaker.includes('KraftX AR Agent') || speaker.includes('Jenny')) {
+                conversationMsg.classList.add('kraftx-agent');
+            }
+
+            const speakerDiv = document.createElement('div');
+            speakerDiv.className = 'speaker';
+            
+            // Handle HTML in speaker name
+            if (/<[a-z][\s\S]*>/i.test(speaker)) {
+                speakerDiv.innerHTML = DOMPurify.sanitize(speaker);
+            } else {
+                speakerDiv.textContent = speaker;
+            }
+
+            const textDiv = document.createElement('div');
+            textDiv.className = 'conversation-text';
+            textDiv.textContent = text;
+
+            conversationMsg.appendChild(speakerDiv);
+            conversationMsg.appendChild(textDiv);
+
+            const container = conversationDiv.querySelector('.message-container');
+            container.appendChild(conversationMsg);
+
+            scrollToMiddle(conversationMsg);
+            updateMessageVisibility(container);
+        }
+
+        function showConsolidatedMetrics() {
+            const consolidatedSection = document.getElementById('consolidated');
+            const consolidatedView = consolidatedSection.querySelector('.consolidated-view');
+            const mainSection = document.querySelector('.main-section');
+
+            // Show the section
+            consolidatedSection.style.display = 'block';
+
+            // Add metrics to the summary
+            const summaryDiv = consolidatedSection.querySelector('.metrics-summary');
+            summaryDiv.innerHTML = ''; // Clear existing content
+
+            // Define the order and layout of metrics
+            const metricConfig = {
+                'Representative Name': { order: 1 },
+                'Claim Reference Number': { order: 2 },
+                'Claim Status': { order: 3  },
+                'Claim Denial Reason': { order: 4},
+                'Claim Received Date': { order: 5 },
+                'Claim Denial Date': { order: 6 },
+                'Claim Denial Reason': { order: 7 },
+                'Claim Denial Reason Code': { order: 8 },
+                'Correct Diagnosis Code': { order: 9 },
+                // 'Corrected Claim Submission': { order: 10 },
+                // "Corrected Denial Reason": { order: 11 },
+                // "CPT Code": { order: 12 },
+                // "Diagnosis Code on File": { order: 13 },
+                // "Corrected Claim Submission Deadline Date": { order: 14 },
+                // 'Corrected Claim Submission Deadline Date': { order: 11 },
+                // 'Corrected Claim Submission Deadline': { order: 12 },
+                // 'Corrected Claim Submission Requirements': { order: 13 },
+            };
+
+            // Helper function to determine if a value needs wide layout
+            function needsWideLayout(value) {
+                if (typeof value === 'string') {
+                    return value.length > 150 || value.includes('\n');
+                }
+                if (typeof value === 'object') {
+                    return JSON.stringify(value, null, 2).length > 150;
+                }
+                return false;
+            }
+
+            // Create and append metric elements with order and initial styles
+            const metricElements = Object.entries(metricsCollection).map(([key, value], index) => {
+                const metricDiv = document.createElement('div');
+                const config = metricConfig[key] || { order: 999 };
+                
+                metricDiv.style.order = config.order;
+                metricDiv.style.opacity = '0';
+                metricDiv.style.transform = 'translateY(20px)';
+                metricDiv.style.transition = 'all 0.5s ease-out';
+
+                // Add wide-metric class if configured or if content is long
+                if (config.wide || needsWideLayout(value)) {
+                    metricDiv.classList.add('wide-metric');
+                }
+
+                const keyElement = document.createElement('strong');
+                keyElement.textContent = key;
+
+                const valueElement = document.createElement('span');
+                if (typeof value === 'string') {
+                    if (/<[a-z][\s\S]*>/i.test(value)) {
+                        valueElement.innerHTML = DOMPurify.sanitize(value);
+                    } else {
+                        valueElement.textContent = value;
+                    }
+                } else if (value === null || value === undefined) {
+                    valueElement.textContent = '';
+                } else if (typeof value === 'object') {
+                    valueElement.textContent = JSON.stringify(value, null, 2);
+                } else {
+                    valueElement.textContent = String(value);
+                }
+
+                metricDiv.appendChild(keyElement);
+                metricDiv.appendChild(valueElement);
+                summaryDiv.appendChild(metricDiv);
+                return metricDiv;
+            });
+
+            // Trigger the section transition
+            requestAnimationFrame(() => {
+                mainSection.classList.add('exit');
+                setTimeout(() => {
+                    consolidatedSection.classList.add('visible');
+                    consolidatedView.classList.add('visible');
+
+                    // Staggered animation for metrics
+                    metricElements.forEach((metric, index) => {
+                        setTimeout(() => {
+                            metric.style.opacity = '1';
+                            metric.style.transform = 'translateY(0)';
+                        }, 100 + (index * 100)); // Stagger by 100ms
+                    });
+                }, 100);
+            });
+        }
+
+        function hideConsolidatedMetrics() {
+            const consolidatedSection = document.getElementById('consolidated');
+            const consolidatedView = consolidatedSection.querySelector('.consolidated-view');
+
+            consolidatedView.classList.remove('visible');
+            consolidatedSection.classList.remove('visible');
+            consolidatedSection.classList.add('exit');
+
+            setTimeout(() => {
+                consolidatedSection.style.display = 'none';
+                consolidatedSection.classList.remove('exit');
+            }, 1000);
+        }
+
+        // Function to update metric order with animation
+        function setMetricOrder(orderConfig) {
+            const summaryDiv = document.querySelector('.metrics-summary');
+            if (!summaryDiv) return;
+
+            const metrics = Array.from(summaryDiv.querySelectorAll('div'));
+            
+            // First, update all orders
+            metrics.forEach(metric => {
+                const key = metric.querySelector('strong').textContent;
+                const newOrder = orderConfig[key] || 999;
+                
+                // Add transition
+                metric.style.transition = 'all 0.5s ease-out';
+                metric.style.order = newOrder;
+            });
+
+            // Optionally animate the reordering
+            metrics.forEach(metric => {
+                metric.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    metric.style.transform = 'scale(1)';
+                }, 50);
+            });
+        }
+    </script>
+</body>
+
+</html>

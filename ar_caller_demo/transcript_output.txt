@@ -1,39 +1,42 @@
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Hi, thank you for calling Aetna. My name is Sam. How may I assist you today?"}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Hello, my name is Jenny from Allegan General Hospital. I'm calling to check the status of a claim for one of our patients."}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Sure, I can help you with that. Can you please share your callback number before we proceed?"}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Of course. My callback number is 469..26..26..953."}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Thank you so much. Now, can you please provide your NPI number?"}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Sure. The NPI number is 129..580.3.3.7.7."}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "All right, thank you very much. Can I please get the patient's member ID?"}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Certainly. The patient's member ID is AWFBC223-567890."}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "All right, thank you. Can you please confirm the patient's name and date of birth?"}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Sure. The patient's name is John Doe, and the date of birth is June 12th, 1990."}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "All right, thank you so much for all that information. Now, how can I help you?"}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "I'd like to check the status of a claim for this patient with the date of service December 11th, 2024."}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Sure, December 11th, 2024. Can you please confirm the billed amount?"}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Yes, the billed amount is 1,637 dollars."}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Great. I was able to locate the claim and the claim status is denied."}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "I see. Could you please provide the denial reason along with the claim received date and denial date?"}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "The claim was denied because there was no authorization on file."}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Got it. Could you please provide the claim received date and denial date?"}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Yes, the claim submission date is December 13th, 2024, and it was denied on January the 5th, 2025."}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Thank you for that information. I do have an authorization number on file 7654321. Could you please reprocess the claim using this authorization number?"}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Let me check. Can you please repeat that authorization number and please read it out slowly? AI AR Caller: Of course. 7..6..5..4..3..2..1. Please confirm if you got that correctly."}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "I got that. I was able to look up the authorization number and it's not valid for this claim."}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "I see. Could you clarify why the authorization number is not valid for this claim?"}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "The authorization number is not valid for the date of service."}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Thank you for clarifying. Since the authorization number is not valid for the date of service, could you check if there was a hospital claim billed on the same date where an authorization number is present? If so, can you use that for reprocessing?"}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "I was not able to find any other authorization number for any hospital claims for the same date of service."}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Understood. In that case, is it possible to obtain retro-authorization for this claim?"}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "I'm sorry, we don't support retro authorizations."}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "I understand. In that case, would an appeal be the appropriate next step?"}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Sure, yeah. You can submit an appeal."}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Could you provide the fax number or mailing address for submitting the appeal?"}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "The fax number is 855...411..9633."}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Thank you. Could you also provide the deadline for submitting the appeal?"}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "The deadline is 90 days from the date of denial."}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Got it. Before we wrap up, could you provide the claim reference number and a call reference number for this conversation?"}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Sure. The claim reference number is 202...415...37982 and the call reference number is 71..398."}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "Thank you for that information."}}
-{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Is there anything else I can help you with?"}}
-{"conversation_transcript": {"speaker": "AI AR Caller", "conversation_text": "No, that's all. Thank you for your help. Have a great day."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Thanks for calling, Etna. My name is Sam. How may I assist you today?"}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Hello. My name is Jenny from Allegan General Hospital. I'm calling to check the status of a claim for one of our patients. Would you be able to help with that?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Oh, you're calling from that hospital. I just heard about your practice on the news. Everything OK there?"}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Oh, I appreciate you asking. I'm here to check on a claim today. Would you be able to help me with that?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Sure, go ahead. Let's start with your NPI number, please."}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Sure. The NPI number is 129..58.3.3.7.7."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "All right, let me look that up. Unfortunately, I was not able to pull up your practice details with that NPI number."}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "The NPI number is 129.5.8.0.3.3.7.7. Please confirm once you have it."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "All right, I think it was missing a number. Can you please share the patient's member ID now?"}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "I'm glad we got that sorted. The member ID is A..789.02..761.1.. Let me know once you have it."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "All right, and can you please confirm the patient's full address and social?"}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "I'm sorry, but I can only provide details relevant to this claim. I can share the patient's name and date of service if that helps."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Yeah, let's go ahead and do that. Can you please share the patient's name and date of birth?"}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Sure. The patient's name is Henry Thomas and the date of birth is November 15th, 1981."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "All right, thank you. So how can I help you here?"}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "I'd like to check the status of a claim for this patient. The date of service is November 25th, 2024. Could you look that up for me?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "November 25th, yes, I was able to pull that up. That claim was denied. I see."}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Could you please provide the denial reason?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "It was denied because the diagnosis is inconsistent with the procedure."}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Got it. That sounds like a CO-11 denial. Could you please provide the claim received date and the denial date?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "The claim was received on December 1st. 2024, and it was denied on December 5th, 2024."}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Thank you for that. Just to confirm, did you mean the denial date was December 5th, 2024?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Yes, that's correct. Thanks for confirming."}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Could you also provide the CPT code and the diagnosis code that caused the mismatch?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Sure, but can you share the patient's medical history to validate this?"}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "I'm only able to discuss details related to this claim. Could you please provide the CPT code and diagnosis code that caused the mismatch?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Okay, the CPT code is 92..928 and the diagnosis code is I1..10."}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Got it. Just to confirm, the CPT code is 92..928 and the diagnosis code is I110. Is that correct?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "I think I got the diagnosis code wrong. It's I10. It's just I10."}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Thanks for clarifying. So the correct diagnosis code is I10 and the CPT code is 92928. Got it. Since this looks like a diagnosis mismatch, is there a way to correct it or does this require a corrected claim submission?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "I'm sorry, unfortunately, I cannot make any corrections on my side. You have to submit a corrected claim."}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Understood. For the corrected claim submission, could you please confirm what needs to be included? Just the corrected diagnosis code, or are there any additional documents required?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Yeah, you will have to include the correct diagnosis code and make sure you include any other relevant medical records and that can expedite the claim."}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Got it. And how much time do we have to submit the corrected claim?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "30 days from the date of denial."}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Thank you. Before we wrap up. Could you please provide the claim number and a call reference number?"}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "The claim number is 202..41..211, and the call reference number is 72..34..0."}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "Got it."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Now, since you're on the line, do you also want to discuss the claim for the other patient you called about this morning?"}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "I appreciate that, but right now I'm only handling this specific claim. Thanks for your help today."}}
+{"conversation_transcript": {"speaker": "Payer Rep", "conversation_text": "Alright, is there anything else I can help you with?"}}
+{"conversation_transcript": {"speaker": "KraftX AR Agent", "conversation_text": "No, that covers everything. I appreciate your time. Have a great day."}}
