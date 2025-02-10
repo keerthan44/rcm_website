@@ -379,7 +379,7 @@
           <div class="flex items-center justify-between h-16">
             <!-- Logo -->
             <div class="flex-shrink-0">
-              <a href="#"
+              <a href="/"
                 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent flex flex-row items-center ">
                 <img src="../assets/favicon.png" class="h-16" />
                 KraftX
@@ -537,16 +537,16 @@
               Experience a revolutionary way to handle AR calls—our AI agent slashes your AR efforts by 40–50% while
               delivering human-grade results.
             </p>
+            <p class="text-xl text-slate-300 leading-relaxed max-w-2xl"
+              style="animation-delay: calc(2 * var(--stagger-delay));">
+              Ready to see it in action?
+            </p>
 
             <div class="flex flex-col gap-6 mt-8" style="animation-delay: calc(3 * var(--stagger-delay));">
-              <h3
-                class="text-2xl font-semibold text-white bg-gradient-to-r from-blue-200 to-blue-400 bg-clip-text text-transparent">
-                Ready to see it in action?
-              </h3>
               <div class="flex flex-col sm:flex-row gap-6">
                 <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
                   class="group w-fit inline-flex xs:self-center items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/20 animate__animated animate__pulse animate__infinite">
-                  Schedule a Live Demo
+                  Book a Demo
                   <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6">
@@ -563,7 +563,7 @@
             <div class="relative animate__animated animate__fadeInRight">
               <div class="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full"></div>
               <div class="relative bg-neutral-800/50 p-8 rounded-2xl border border-gray-700 backdrop-blur-sm">
-                <div class="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1  gap-4">
+                <div class="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 text-center gap-4">
                   <div class="p-4 bg-neutral-700/50 rounded-lg">
                     <div class="text-3xl font-bold text-green-400 mb-2">40-50%</div>
                     <div class="text-gray-300">Reduction in AR Calling Costs</div>
@@ -635,39 +635,115 @@
     </section>
   </element>
   <element id="bce2adf5-599f-422c-a034-1677e8a58bbf" data-section-id="bce2adf5-599f-422c-a034-1677e8a58bbf">
-    <section id="demo" class="py-32 xs:py-16 lg:py-32   bg-gradient-to-tr from-slate-900 via-slate-800 to-slate-900">
+    <section id="demo" class="py-32 xs:py-16 lg:py-32 bg-gradient-to-tr from-slate-900 via-slate-800 to-slate-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 animate__animated animate__fadeIn">
-          <h2 class="text-4xl font-bold text-white mb-6">Experience the KraftX AI Agents in Action</h2>
+          <h2 class="xs:text-3xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-white mb-6">Experience the KraftX AR
+            Agents in Action</h2>
         </div>
 
         <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <!-- First Video -->
           <div
             class="bg-slate-800/50 rounded-xl p-4 hover:scale-105 transition-transform duration-300 animate__animated animate__fadeInLeft">
-            <div class="aspect-video bg-slate-700 rounded-lg flex items-center justify-center mb-4">
-              <iframe width="100%" height="100%"
-                src="https://www.youtube.com/embed/yjkxdJPaQ4U?modestbranding=1&autohide=1&showinfo=0&controls=1&rel=0"
-                title="Authorization Invalid (CO-197)" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-              </iframe>
-            </div>
-            <h3 class="text-xl font-semibold text-white text-center">Authorization Invalid (CO-197)</h3>
+            <button onclick="openVideoModal('yjkxdJPaQ4U')" class="w-full cursor-pointer focus:outline-none">
+              <div class="aspect-video rounded-lg relative group overflow-hidden"
+                style="background-image: url('../assets/ar_caller/denied_auth_thumbnail.jpg'); background-size: cover; background-position: center;">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div
+                    class="bg-blue-600/90 rounded-full p-4 transform group-hover:scale-110 transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </button>
+            <h3 class="text-2xl font-semibold text-white text-center mt-4">Authorization Invalid (CO-197)</h3>
           </div>
 
+          <!-- Second Video -->
           <div
             class="bg-slate-800/50 rounded-xl p-4 hover:scale-105 transition-transform duration-300 animate__animated animate__fadeInRight">
-            <div class="aspect-video bg-slate-700 rounded-lg flex items-center justify-center mb-4">
-              <iframe width="100%" height="100%"
-                src="https://www.youtube.com/embed/u5guzGNFPJA?modestbranding=1&autohide=1&showinfo=0&controls=1&rel=0"
-                title="Authorization Invalid (CO-197)" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-              </iframe>
-            </div>
-            <h3 class="text-xl font-semibold text-white text-center">Coding Mismatch (CO-11)</h3>
-
-            <!-- <p class="text-gray-300">Smart handling of referral and authorization processes</p> -->
+            <button onclick="openVideoModal('u5guzGNFPJA')" class="w-full cursor-pointer focus:outline-none">
+              <div class="aspect-video rounded-lg relative group overflow-hidden"
+                style="background-image: url('../assets/ar_caller/coding_mismatch_thumbnail.jpg'); background-size: cover; background-position: center;">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div
+                    class="bg-blue-600/90 rounded-full p-4 transform group-hover:scale-110 transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </button>
+            <h3 class="text-2xl font-semibold text-white text-center mt-4">Coding Mismatch (CO-11)</h3>
           </div>
         </div>
+
+        <!-- Video Modal -->
+        <div id="videoModal" class="fixed inset-0 z-50 hidden">
+          <div class="absolute inset-0 bg-black/90 backdrop-blur-sm"></div>
+          <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="relative w-full max-w-5xl mx-auto">
+              <button onclick="closeVideoModal()"
+                class="absolute -top-12 right-0 text-white hover:text-gray-300 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <div class="relative pb-[56.25%] h-0">
+                <iframe id="videoIframe" class="absolute top-0 left-0 w-full h-full rounded-xl" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          function openVideoModal(videoId) {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=1&rel=0`;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+          }
+
+          function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            iframe.src = '';
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+          }
+
+          // Close modal when clicking outside the video
+          document.getElementById('videoModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+              closeVideoModal();
+            }
+          });
+
+          // Close modal on escape key press
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !document.getElementById('videoModal').classList.contains('hidden')) {
+              closeVideoModal();
+            }
+          });
+        </script>
 
         <div class="text-center max-w-4xl mx-auto animate__animated animate__fadeInUp">
           <p class="text-gray-300 text-lg">
@@ -676,8 +752,8 @@
           </p>
           <div class="text-center mt-8">
             <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
-              class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-5 rounded-full text-lg font-semibold transition-all duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/20 animate__animated animate__pulse animate__infinite">
-              Experience The Magic
+              class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-5 rounded-full text-xl font-semibold transition-all duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/20 animate__animated animate__pulse animate__infinite">
+              See Live Demo
             </button>
           </div>
         </div>
@@ -831,9 +907,9 @@
               class="h-16 w-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform duration-300"
               id="el-jsf1hcnr">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-              </path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                </path>
               </svg>
             </div>
             <h3 class="text-2xl font-bold mb-4 text-white" id="el-njvl47rr">Lost Revenue</h3>
@@ -857,129 +933,216 @@
           <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
             class="relative group px-12 py-6 rounded-full text-xl text-white font-bold  bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/20 animate__animated animate__pulse animate__infinite"
             id="el-paxsqvz9">
-            See Live Demo
+            Book a Demo
           </button>
         </div>
       </div>
     </section>
   </element>
-  <section id="solution" class="py-32 xs:py-16 lg:py-32   bg-gradient-to-br from-slate-900 to-slate-800 h-full">
+  <section id="solution" class="py-32 xs:py-16 lg:py-32 bg-gradient-to-br from-slate-900 to-slate-800 h-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-white mb-6" data-tah="staggered_fade_in">
+        <h2 class="xs:text-3xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-white mb-6"
+          data-tah="staggered_fade_in">
           Meet Your Purpose-Built KraftX AR Agent
+
         </h2>
         <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-tah="staggered_fade_in" style="animation-delay: 0.2s">
           Our AI agent handles up to 60% of AR payer calls, freeing your team for more complex tasks.
         </p>
       </div>
 
-      <div class="mb-20">
-        <h3 class="text-2xl font-bold text-white mb-8 text-center">How it works</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div
-            class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#2F71F0]"
-            data-tah="slide.slide-up">
-            <div class="h-12 w-12 bg-[#2F71F0]/20 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-[#2F71F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </div>
-            <h4 class="text-lg font-semibold mb-2 text-white">Navigate IVR Menus</h4>
-            <p class="text-gray-300">Automatically routes through payer-specific call trees.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div
+          class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#2F71F0]"
+          data-tah="slide.slide-up">
+          <div class="h-12 w-12 bg-[#2F71F0]/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#2F71F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
           </div>
+          <h4 class="text-xl font-semibold mb-2 text-white">Navigate IVR Menus</h4>
+          <p class="text-gray-300">Automatically routes through payer-specific call trees.</p>
+        </div>
 
-          <div
-            class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#844BF2]"
-            data-tah="slide.slide-up" style="animation-delay: 0.2s">
-            <div class="h-12 w-12 bg-[#844BF2]/20 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-[#844BF2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <h4 class="text-lg font-semibold mb-2 text-white">Patiently Waits on Hold</h4>
-            <p class="text-gray-300">Frees human agents to handle more complex tasks.</p>
+        <div
+          class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#844BF2]"
+          data-tah="slide.slide-up" style="animation-delay: 0.2s">
+          <div class="h-12 w-12 bg-[#844BF2]/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#844BF2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
           </div>
+          <h4 class="text-xl font-semibold mb-2 text-white">Patiently Waits on Hold</h4>
+          <p class="text-gray-300">Frees human agents to handle more complex tasks.</p>
+        </div>
 
-          <div
-            class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#2F71F0]"
-            data-tah="slide.slide-up" style="animation-delay: 0.4s">
-            <div class="h-12 w-12 bg-[#2F71F0]/20 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-[#2F71F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z">
-                </path>
-              </svg>
-            </div>
-            <h4 class="text-lg font-semibold mb-2 text-white">Resolves Issues With Live Agents</h4>
-            <p class="text-gray-300">Engages in real-time conversations, capturing every crucial detail.</p>
+        <div
+          class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#2F71F0]"
+          data-tah="slide.slide-up" style="animation-delay: 0.4s">
+          <div class="h-12 w-12 bg-[#2F71F0]/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#2F71F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z">
+              </path>
+            </svg>
           </div>
+          <h4 class="text-xl font-semibold mb-2 text-white">Resolves Issues With Live Agents</h4>
+          <p class="text-gray-300">Engages in real-time conversations, capturing every crucial detail.</p>
+        </div>
 
-          <div
-            class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#844BF2]"
-            data-tah="slide.slide-up" style="animation-delay: 0.6s">
-            <div class="h-12 w-12 bg-[#844BF2]/20 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-[#844BF2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
-                </path>
-              </svg>
-            </div>
-            <h4 class="text-lg font-semibold mb-2 text-white">Real-Time EHR Updates</h4>
-            <p class="text-gray-300">No manual data entry or missed action items.</p>
+        <div
+          class="bg-slate-800/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#844BF2]"
+          data-tah="slide.slide-up" style="animation-delay: 0.6s">
+          <div class="h-12 w-12 bg-[#844BF2]/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#844BF2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+              </path>
+            </svg>
           </div>
+          <h4 class="text-xl font-semibold mb-2 text-white">Real-Time EHR Updates</h4>
+          <p class="text-gray-300">No manual data entry or missed action items.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="py-32 xs:py-16 lg:py-32 bg-gradient-to-br from-slate-800 to-slate-900 h-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="xs:text-3xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-white mb-6">
+          KraftX AR Agent Key Features
+        </h2>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Purpose-built features to transform your AR operations
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div data-tah="fade.fade-in"
+          class="feature-card group flex-1 min-w-[280px] bg-slate-800/30 p-8 rounded-xl transition-all duration-500 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30 hover:bg-slate-800/40 hover:transform hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10"
+          style="--delay: 0s">
+          <div class="feature-icon w-16 h-16 mb-6 bg-blue-500/10 rounded-xl flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+            <svg class="w-8 h-8 text-blue-400 transition-colors duration-300 group-hover:text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-white transition-colors duration-300 group-hover:text-blue-300">Pre-Built Scenarios</h4>
+          <p class="text-gray-300 leading-relaxed transition-colors duration-300 group-hover:text-gray-200">Tailored call flows for common AR challenges right out of the box.</p>
+        </div>
+
+        <div data-tah="fade.fade-in"
+          class="feature-card group flex-1 min-w-[280px] bg-slate-800/30 p-8 rounded-xl transition-all duration-500 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30 hover:bg-slate-800/40 hover:transform hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10"
+          style="--delay: 0.2s">
+          <div class="feature-icon w-16 h-16 mb-6 bg-purple-500/10 rounded-xl flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+            <svg class="w-8 h-8 text-purple-400 transition-colors duration-300 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-white transition-colors duration-300 group-hover:text-purple-300">Easy Scenario Builder</h4>
+          <p class="text-gray-300 leading-relaxed transition-colors duration-300 group-hover:text-gray-200">Customize call flows for complex or unique payer requirements.</p>
+        </div>
+
+        <div data-tah="fade.fade-in"
+          class="feature-card group flex-1 min-w-[280px] bg-slate-800/30 p-8 rounded-xl transition-all duration-500 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30 hover:bg-slate-800/40 hover:transform hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10"
+          style="--delay: 0.4s">
+          <div class="feature-icon w-16 h-16 mb-6 bg-indigo-500/10 rounded-xl flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+            <svg class="w-8 h-8 text-indigo-400 transition-colors duration-300 group-hover:text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-white transition-colors duration-300 group-hover:text-indigo-300">Continuous Learning</h4>
+          <p class="text-gray-300 leading-relaxed transition-colors duration-300 group-hover:text-gray-200">Gains intelligence from every call, improving performance over time.</p>
+        </div>
+
+        <div data-tah="fade.fade-in"
+          class="feature-card group flex-1 min-w-[280px] bg-slate-800/30 p-8 rounded-xl transition-all duration-500 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30 hover:bg-slate-800/40 hover:transform hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10"
+          style="--delay: 0.6s">
+          <div class="feature-icon w-16 h-16 mb-6 bg-cyan-500/10 rounded-xl flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+            <svg class="w-8 h-8 text-cyan-400 transition-colors duration-300 group-hover:text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-white transition-colors duration-300 group-hover:text-cyan-300">Scheduled & Parallel Calls</h4>
+          <p class="text-gray-300 leading-relaxed transition-colors duration-300 group-hover:text-gray-200">Place 100s of calls simultaneously during optimal payer availability.</p>
+        </div>
+
+        <div data-tah="fade.fade-in"
+          class="feature-card group flex-1 min-w-[280px] bg-slate-800/30 p-8 rounded-xl transition-all duration-500 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30 hover:bg-slate-800/40 hover:transform hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10"
+          style="--delay: 0.8s">
+          <div class="feature-icon w-16 h-16 mb-6 bg-teal-500/10 rounded-xl flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+            <svg class="w-8 h-8 text-teal-400 transition-colors duration-300 group-hover:text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-white transition-colors duration-300 group-hover:text-teal-300">Strategic Handoffs</h4>
+          <p class="text-gray-300 leading-relaxed transition-colors duration-300 group-hover:text-gray-200">Automatically escalates complex cases to human agents.</p>
+        </div>
+
+        <div data-tah="fade.fade-in"
+          class="feature-card group flex-1 min-w-[280px] bg-slate-800/30 p-8 rounded-xl transition-all duration-500 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30 hover:bg-slate-800/40 hover:transform hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10"
+          style="--delay: 1s">
+          <div class="feature-icon w-16 h-16 mb-6 bg-rose-500/10 rounded-xl flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+            <svg class="w-8 h-8 text-rose-400 transition-colors duration-300 group-hover:text-rose-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-white transition-colors duration-300 group-hover:text-rose-300">Detailed Analytics</h4>
+          <p class="text-gray-300 leading-relaxed transition-colors duration-300 group-hover:text-gray-200">Comprehensive reporting and insights on call performance and outcomes.</p>
         </div>
       </div>
 
-      <div class="bg-slate-800/50 rounded-2xl p-8 lg:p-12 border border-[#2F71F0]">
-        <h3 class="text-2xl font-bold text-white mb-8 text-center">Key Features</h3>
-        <div class="flex flex-wrap justify-center gap-8">
-          <div data-tah="fade.fade-in"
-            class="flex-1 min-w-[280px] max-w-[400px] bg-slate-800/30 p-6 rounded-xl hover:bg-slate-800/40 transition-all duration-300 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30">
-            <h4 class="text-lg font-semibold mb-3 text-white">Pre-Built Scenarios</h4>
-            <p class="text-gray-300 leading-relaxed">Tailored call flows for common AR challenges right out of the box.
-            </p>
-          </div>
+      <style>
+        .feature-card {
+          opacity: 0;
+          animation: fadeInUp 0.6s ease-out forwards;
+          animation-delay: var(--delay);
+        }
 
-          <div data-tah="fade.fade-in"
-            class="flex-1 min-w-[280px] max-w-[400px] bg-slate-800/30 p-6 rounded-xl hover:bg-slate-800/40 transition-all duration-300 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30"
-            style="animation-delay: 0.2s">
-            <h4 class="text-lg font-semibold mb-3 text-white">Easy Scenario Builder</h4>
-            <p class="text-gray-300 leading-relaxed">Customize call flows for complex or unique payer requirements.</p>
-          </div>
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
-          <div data-tah="fade.fade-in"
-            class="flex-1 min-w-[280px] max-w-[400px] bg-slate-800/30 p-6 rounded-xl hover:bg-slate-800/40 transition-all duration-300 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30"
-            style="animation-delay: 0.4s">
-            <h4 class="text-lg font-semibold mb-3 text-white">Continuous Learning</h4>
-            <p class="text-gray-300 leading-relaxed">Gains intelligence from every call, improving performance over
-              time.</p>
-          </div>
+        .feature-icon {
+          position: relative;
+        }
 
-          <div data-tah="fade.fade-in"
-            class="flex-1 min-w-[280px] max-w-[400px] bg-slate-800/30 p-6 rounded-xl hover:bg-slate-800/40 transition-all duration-300 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30"
-            style="animation-delay: 0.6s">
-            <h4 class="text-lg font-semibold mb-3 text-white">Scheduled &amp; Parallel Calls</h4>
-            <p class="text-gray-300 leading-relaxed">Place 100s of calls simultaneously during optimal payer
-              availability.</p>
-          </div>
+        .feature-icon::after {
+          content: '';
+          position: absolute;
+          inset: -4px;
+          background: inherit;
+          filter: blur(8px);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
 
-          <div data-tah="fade.fade-in"
-            class="flex-1 min-w-[280px] max-w-[400px] bg-slate-800/30 p-6 rounded-xl hover:bg-slate-800/40 transition-all duration-300 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/30"
-            style="animation-delay: 0.8s">
-            <h4 class="text-lg font-semibold mb-3 text-white">Strategic Handoffs</h4>
-            <p class="text-gray-300 leading-relaxed">Automatically escalates complex cases to human agents.</p>
-          </div>
-        </div>
+        .feature-card:hover .feature-icon::after {
+          opacity: 0.6;
+        }
 
-        <div class="text-center mt-12">
-          <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
-            class="relative group px-12 py-6 rounded-full text-xl text-white font-bold  bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/20 animate__animated animate__pulse animate__infinite"
-            id="el-paxsqvz9">
-            Get in Touch
-          </button>
-        </div>
+        @media (prefers-reduced-motion: reduce) {
+          .feature-card {
+            animation: none;
+            opacity: 1;
+          }
+        }
+      </style>
+
+      <div class="text-center mt-12">
+        <button onclick="window.open('https://form.jotform.com/250242516908051', '_blank')"
+          class="relative group px-12 py-6 rounded-full text-xl text-white font-bold bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/20 animate__animated animate__pulse animate__infinite">
+          Get in Touch
+        </button>
       </div>
     </div>
   </section>
@@ -1214,12 +1377,6 @@
           class="xs:text-3xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-white mb-8 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-100 to-indigo-100">
           Ready to Transform Your RCM Operations?
         </h2>
-        <p class="text-xl md:text-2xl text-blue-100/80 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
-          Let's redefine what's possible for RCM providers
-        </p>
-        <p class="text-xl md:text-2xl text-blue-100/80 mb-16 max-w-4xl mx-auto leading-relaxed font-medium">
-          Experience the future of healthcare collections with our AR calling agents.
-        </p>
         <p class="text-xl md:text-2xl text-blue-100/80 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
           Discover how leading healthcare providers are reducing AR efforts by 40-50% while improving collection rates.
         </p>
